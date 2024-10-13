@@ -1,14 +1,15 @@
 package com.booksotre.controller;
 
-
-import java.net.*;
-import java.io.*;
 import java.io.IOException;
-import java.net.Socket;
+import java.net.URL;
 import java.util.*;
-import java.util.ResourceBundle;
+
+import com.booksotre.model.EmployeeModel;
+import com.booksotre.service.IEmployeeService;
+import com.booksotre.service.impl.EmployeeService;
+import com.booksotre.utils.AlertInfo;
+import com.booksotre.utils.AlertUnit;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,8 +27,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 /**
- *
  * @author PC
  */
 public class LoginController implements Initializable {
@@ -78,7 +79,7 @@ public class LoginController implements Initializable {
     private PasswordField lg_password;
 
     @FXML
-    private TextField lg_username;
+    private TextField lg_email;
 
     @FXML
     private TextField rg_address;
@@ -105,7 +106,7 @@ public class LoginController implements Initializable {
     private AnchorPane rg_registerForm;
 
     @FXML
-    private TextField rg_username;
+    private TextField rg_email;
 
     @FXML
     private Button side_alreadyHave;
@@ -116,17 +117,87 @@ public class LoginController implements Initializable {
     @FXML
     private AnchorPane side_form;
 
+    private final IEmployeeService employeeService = new EmployeeService();
 
-    private List<String> gender = new ArrayList<>();
-    private List<String> dob = new ArrayList<>();
+    private final List<String> gender = new ArrayList<>();
+    private final List<String> dob = new ArrayList<>();
     private Alert alert;
 
     public void createAccount() {
+        if (rg_fullName.getText().isEmpty() || rg_phone.getText().isEmpty() || rg_address.getText().isEmpty()
+                || rg_gender.getSelectionModel().getSelectedItem() == null || rg_password.getText().isEmpty()
+                || rg_dob.getSelectionModel().getSelectedItem() == null || rg_email.getText().isEmpty()) {
+            alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
+        } else {
 
+            if (!employeeService.checkAccountExist(rg_email.getText())) {
+                alert = AlertUnit.generateAlert(AlertInfo.EMAIL_EXISTED);
+            } else if (rg_password.getText().length() < 8) {
+                alert = AlertUnit.generateAlert(AlertInfo.PASSWORD_INVALID);
+            } else {
+                EmployeeModel employee = EmployeeModel.builder()
+                        .email(rg_email.getText())
+                        .password(rg_password.getText())
+                        .name(rg_fullName.getText())
+                        .phone(rg_phone.getText())
+                        .dob(rg_dob.getSelectionModel().getSelectedItem().toString())
+                        .address(rg_address.getText())
+                        .gender(rg_gender.getSelectionModel().getSelectedItem().toString())
+                        .create_at(new java.sql.Date(new java.util.Date().getTime()))
+                        .build();
+
+                employeeService.createAccount(employee);
+
+                alert = AlertUnit.generateAlert(AlertInfo.CREAT_ACCOUNT_SUCCESS);
+
+                resetRegisterForm();
+
+                TranslateTransition slider = new TranslateTransition();
+                slider.setNode(side_form);
+                slider.setToX(0);
+                slider.setDuration(Duration.seconds(.5));
+
+                slider.setOnFinished((ActionEvent e) -> {
+                    side_alreadyHave.setVisible(false);
+                    side_createBtn.setVisible(true);
+                });
+
+                slider.play();
+            }
+        }
     }
 
     public void loginAccount() {
+        if (lg_password.getText().isEmpty() || lg_email.getText().isEmpty()) {
+            alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
+        } else {
+            if (!employeeService.checkAccountExist(lg_email.getText())) {
+                alert = AlertUnit.generateAlert(AlertInfo.EMAIL_PASSWORD_INVALID);
+            } else {
+                System.out.println(lg_email.getText() + lg_password.getText());
+                if (employeeService.passwordValid(lg_email.getText(), lg_password.getText())) {
+                    alert = AlertUnit.generateAlert(AlertInfo.LOGIN_SUCCESSFUL);
 
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/AdminFXML.fxml")));
+                        Stage stage = new Stage();
+                        Scene scene = new Scene(root);
+                        stage.setTitle("Cafe Shop System");
+                        stage.setMinHeight(600);
+                        stage.setWidth(1300);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    lg_loginbtn.getScene().getWindow().hide();
+                } else {
+                    alert = AlertUnit.generateAlert(AlertInfo.EMAIL_PASSWORD_INVALID);
+                }
+            }
+
+        }
     }
 
     public void setValue() {
@@ -157,6 +228,16 @@ public class LoginController implements Initializable {
 
     public void changePass() {
 
+    }
+
+    public void resetRegisterForm() {
+        rg_fullName.setText("");
+        rg_phone.setText("");
+        rg_address.setText("");
+        rg_gender.getSelectionModel().clearSelection();
+        rg_dob.getSelectionModel().clearSelection();
+        rg_email.setText("");
+        rg_password.setText("");
     }
 
     public void backLoginForm() {
@@ -207,8 +288,8 @@ public class LoginController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
 

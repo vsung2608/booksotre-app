@@ -8,6 +8,7 @@ module com.booksotre {
     requires static lombok;
     requires java.sql;
     requires mysql.connector.j;
+    requires jbcrypt;
 
     opens com.booksotre.controller to javafx.fxml;
     exports com.booksotre.controller;

@@ -14,7 +14,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            cnt = DriverManager.getConnection("jdbc:mysql://localhost:3306/BookStore", "root", "260804");
+            cnt = DriverManager.getConnection("jdbc:mysql://localhost:3306/BookStoreDB", "root", "260804");
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
@@ -28,7 +28,6 @@ public class AbstractDAO<T> implements GenericDAO<T> {
         ResultSet rs = null;
         List<T> list = new ArrayList<>();
 
-        con = getConnection();
         try {
             ps = con.prepareStatement(query);
             setParameter(ps, prm);
@@ -43,8 +42,25 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     }
 
     @Override
-    public Long insert(String query, Object... prm) {
-        return 0L;
+    public void insert(String query, Object... prm) {
+        Connection con = getConnection();
+        PreparedStatement ps = null;
+
+        try {
+            ps = con.prepareStatement(query);
+            setParameter(ps, prm);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                assert ps != null;
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     @Override
@@ -59,7 +75,22 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 
     @Override
     public Integer count(String query, Object... prm) {
-        return 0;
+        Connection con = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int cnt = 0;
+
+        try {
+            ps = con.prepareStatement(query);
+            setParameter(ps, prm);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                cnt = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
     }
 
     @SneakyThrows

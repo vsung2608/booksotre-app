@@ -2,7 +2,6 @@ module com.booksotre {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires static lombok;
@@ -10,9 +9,16 @@ module com.booksotre {
     requires mysql.connector.j;
     requires jbcrypt;
 
-    opens com.booksotre.controller to javafx.fxml;
+    opens com.booksotre.controller to
+            javafx.fxml;
+
     exports com.booksotre.controller;
 
-    opens com.booksotre.main to javafx.graphics;
+    opens com.booksotre.main to
+            javafx.graphics;
+
     exports com.booksotre.main;
+
+    opens com.booksotre.model to
+            javafx.base;
 }

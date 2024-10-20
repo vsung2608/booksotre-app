@@ -1,6 +1,6 @@
 .gradient{
-    /*-fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);*/
-    -fx-background-color: linear-gradient(to bottom right, #141790, #347c7e);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
+    /*-fx-background-color: linear-gradient(to bottom right, #141790, #347c7e);*/
 }
 
 .white-form{
@@ -8,13 +8,14 @@
 }
 
 .head-lable{
-    -fx-border-color: #286155;
+    -fx-border-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
+    -fx-text-fill: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-border-width: 0 0 0 5px;
     -fx-padding: 0 0 0 5px;
 }
 
 .login-btn{
-    -fx-background-color: linear-gradient(to bottom right, #141790, #347c7e);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-border-radius: 10px;
     -fx-cursor: hand;
     -fx-text-fill: #fff;
@@ -22,12 +23,12 @@
 }
 
 .login-btn:hover{
-    -fx-background-color: linear-gradient(to bottom right, #141790, #347c7e);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
 }
 
 .textField{
     -fx-background-color: transparent;
-    -fx-border-color: linear-gradient(to bottom right, #141790, #347c7e);
+    -fx-border-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-border-width: .5px;
 }
 
@@ -44,6 +45,10 @@
 }
 
 .comboBox{
-    -fx-border-color: linear-gradient(to bottom right, #141790, #347c7e);
+    -fx-border-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-background-color: transparent;
+}
+
+.text{
+    -fx-text-fill: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
 }

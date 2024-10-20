@@ -1,11 +1,11 @@
 .header{
-    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-border-color: #fff;
     -fx-border-width: 0 0 .8px 0;
 }
 
 .nav-form{
-    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
 }
 
 .nav-btn{
@@ -41,13 +41,13 @@
 .table-view{
     -fx-background-color: #fff;
     -fx-padding: 0;
-    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-border-radius: 5px;
     -fx-border-width: 1.5px;
 }
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-background-radius: 5px 5px 0 0;
     -fx-background-insets: 0 0 0 0;
 }
@@ -62,7 +62,7 @@
 }
 
 .btn{
-    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-background-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
     -fx-font-size: 14px;
@@ -78,6 +78,10 @@
 .comboBox{
     -fx-background-color: transparent;
     -fx-border-color: #0f6789;
+}
+
+.text{
+    -fx-text-fill: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
 }
 
 

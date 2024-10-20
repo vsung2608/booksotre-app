@@ -9,16 +9,14 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeModel {
-    private Integer employeeId;
+public class CustomerModel {
+    private Integer customerId;
     private String email;
     private String password;
-    private String employeeName;
+    private String customerName;
     private String phone;
     private String address;
     private String gender;
     private String dob;
-    private String role;
-    private Double salary;
     private Timestamp createAt;
 }

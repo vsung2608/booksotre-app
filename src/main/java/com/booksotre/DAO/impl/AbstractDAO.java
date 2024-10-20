@@ -1,12 +1,13 @@
 package com.booksotre.DAO.impl;
 
-import com.booksotre.DAO.GenericDAO;
-import com.booksotre.mapper.IRowMapper;
-import lombok.SneakyThrows;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.booksotre.DAO.GenericDAO;
+import com.booksotre.mapper.IRowMapper;
+
+import lombok.SneakyThrows;
 
 public class AbstractDAO<T> implements GenericDAO<T> {
     public Connection getConnection() {
@@ -65,13 +66,20 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 
     @Override
     public void update(String query, Object... prm) {
+        Connection cnt = getConnection();
+        PreparedStatement ps = null;
 
+        try {
+            ps = cnt.prepareStatement(query);
+            setParameter(ps, prm);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
-    public void delete(String query, Object... prm) {
-
-    }
+    public void delete(String query, Object... prm) {}
 
     @Override
     public Integer count(String query, Object... prm) {
@@ -94,8 +102,8 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     }
 
     @SneakyThrows
-    public void setParameter(PreparedStatement ps, Object ...prm){
-        for(int i = 0; i < prm.length; i++){
+    public void setParameter(PreparedStatement ps, Object... prm) {
+        for (int i = 0; i < prm.length; i++) {
             if (prm[i] == null) {
                 ps.setObject(i + 1, null);
                 continue;
@@ -103,14 +111,15 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 
             switch (prm[i].getClass().getSimpleName()) {
                 case "String" -> ps.setString(i + 1, (String) prm[i]);
-                case "Integer"-> ps.setInt(i + 1, (Integer) prm[i]);
+                case "Integer" -> ps.setInt(i + 1, (Integer) prm[i]);
                 case "Double" -> ps.setDouble(i + 1, (Double) prm[i]);
                 case "Boolean" -> ps.setBoolean(i + 1, (Boolean) prm[i]);
                 case "Date" -> ps.setDate(i + 1, (Date) prm[i]);
                 case "Timestamp" -> ps.setTimestamp(i + 1, (Timestamp) prm[i]);
                 case "Long" -> ps.setLong(i + 1, (Long) prm[i]);
                 case "Float" -> ps.setFloat(i + 1, (Float) prm[i]);
-                default -> throw new SQLException("Unsupported parameter type: " + prm[i].getClass().getName());
+                default -> throw new SQLException(
+                        "Unsupported parameter type: " + prm[i].getClass().getName());
             }
         }
     }

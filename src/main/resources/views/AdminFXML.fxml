@@ -12,6 +12,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,12 +34,12 @@
                                     <children>
                                         <AnchorPane layoutX="-2.0" prefHeight="87.0" prefWidth="239.0" styleClass="header">
                                             <children>
-                                                <Label layoutX="74.0" layoutY="30.0" text="Cửa hàng Cafe" textFill="WHITE">
+                                                <Label layoutX="79.0" layoutY="31.0" text="BOOKSTORE" textFill="WHITE">
                                                     <font>
-                                                        <Font size="18.0" />
+                                                        <Font name="System Bold" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <FontAwesomeIcon fill="WHITE" glyphName="COFFEE" layoutX="38.0" layoutY="54.0" size="30" wrappingWidth="12.000004768371582" />
+                                                <FontAwesomeIcon fill="WHITE" glyphName="LEANPUB" layoutX="38.0" layoutY="54.0" size="30" wrappingWidth="12.000004768371582" />
                                             </children>
                                         </AnchorPane>
                                         <Label layoutX="25.0" layoutY="106.0" text="Chào mừng" textFill="WHITE">
@@ -51,11 +52,11 @@
                                                 <Font size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="nutTrangChu" layoutX="11.0" layoutY="214.0" mnemonicParsing="false" onAction="#chuyenManHinh" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Trang chủ" textFill="#1a6d8f" />
-                                        <Button fx:id="nutXDSHoaDon" layoutX="13.0" layoutY="370.0" mnemonicParsing="false" onAction="#chuyenManHinh" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Hóa đơn " />
-                                        <Button fx:id="nutMenu" layoutX="13.0" layoutY="319.0" mnemonicParsing="false" onAction="#chuyenManHinh" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Menu" />
-                                        <Button fx:id="nutHangTK" layoutX="12.0" layoutY="268.0" mnemonicParsing="false" onAction="#chuyenManHinh" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Hàng tồn kho" />
-                                        <Button fx:id="nutDangXuat" layoutX="14.0" layoutY="556.0" mnemonicParsing="false" onAction="#dangXuat" prefHeight="31.0" prefWidth="102.0" styleClass="nav-btn" text="Đăng xuất" AnchorPane.bottomAnchor="12.8" AnchorPane.leftAnchor="14.0">
+                                        <Button fx:id="nutTrangChu" layoutX="11.0" layoutY="214.0" mnemonicParsing="false" onAction="#navigate" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Trang chủ" textFill="#1a6d8f" />
+                                        <Button fx:id="nutXDSHoaDon" layoutX="13.0" layoutY="370.0" mnemonicParsing="false" onAction="#navigate" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Quản lý đơn hàng" />
+                                        <Button fx:id="nutMenu" layoutX="13.0" layoutY="319.0" mnemonicParsing="false" onAction="#navigate" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Menu" />
+                                        <Button fx:id="nutHangTK" layoutX="12.0" layoutY="268.0" mnemonicParsing="false" onAction="#navigate" prefHeight="38.0" prefWidth="213.0" styleClass="nav-btn" text="Quản lý sách" />
+                                        <Button fx:id="nutDangXuat" layoutX="14.0" layoutY="556.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="102.0" styleClass="nav-btn" text="Đăng xuất" AnchorPane.bottomAnchor="12.8" AnchorPane.leftAnchor="14.0">
                                             <graphic>
                                                 <FontAwesomeIcon fill="#fcfbfb" glyphName="SIGN_OUT" selectionFill="#fffefe" />
                                             </graphic>
@@ -68,7 +69,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="trangChuForm" prefHeight="600.0" prefWidth="862.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="trangChuForm" prefHeight="600.0" prefWidth="862.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane prefHeight="178.0" prefWidth="830.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="17.600000000000023" AnchorPane.topAnchor="14.0">
                                             <styleClass>
@@ -177,19 +178,21 @@
                                         <Separator prefHeight="3.0" prefWidth="827.0" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="QlyHTKForm" layoutX="225.0" layoutY="167.0" prefHeight="600.0" prefWidth="1062.4" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="QlyHTKForm" layoutX="225.0" layoutY="167.0" prefHeight="600.0" prefWidth="1062.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="286.0" prefWidth="1032.0" AnchorPane.bottomAnchor="299.20000000000005" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
                                             <children>
-                                                <TableView fx:id="danhSachSP" layoutY="10.0" onMouseClicked="#chonDuLieuHangHoa" prefHeight="266.0" prefWidth="1011.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.799999999999955" AnchorPane.topAnchor="10.0">
+                                                <TableView fx:id="listBook" layoutX="14.0" layoutY="10.0" onMouseClicked="#getBookToUpdate" prefHeight="266.0" prefWidth="1011.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="10.799999999999955" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.800000000000182" AnchorPane.topAnchor="10.0">
                                                     <columns>
-                                                        <TableColumn fx:id="cotMaSP" prefWidth="84.79998779296875" text="Mã sản phẩm " />
-                                                        <TableColumn fx:id="cotTenSP" prefWidth="156.800048828125" text="Tên sản phẩm " />
-                                                        <TableColumn fx:id="cotLoaiSP" prefWidth="100.79998779296875" text="Loại" />
-                                                        <TableColumn fx:id="cotSoLuongSP" prefWidth="100.79998779296875" text="Số lượng" />
-                                                        <TableColumn fx:id="cotGiaSP" prefWidth="100.79998779296875" text="Giá cả" />
-                                                        <TableColumn fx:id="cotTrangThai" prefWidth="100.79998779296875" text="Trạng thái" />
-                                                        <TableColumn fx:id="cotNgayNhapSP" prefWidth="100.79998779296875" text="Ngày nhập" />
+                                                        <TableColumn fx:id="col_bookId" prefWidth="59.200010657310486" text="Mã sách" />
+                                                        <TableColumn fx:id="col_bookName" prefWidth="164.00000762939453" text="Tên sách" />
+                                                        <TableColumn fx:id="col_isbn" prefWidth="115.19998168945312" text="Mã ISBN" />
+                                                        <TableColumn fx:id="col_author" prefWidth="154.39999389648438" text="Tác giả" />
+                                                        <TableColumn fx:id="col_publisher" prefWidth="171.19998168945312" text="Nhà xuất bản" />
+                                                        <TableColumn fx:id="col_price" prefWidth="81.60003662109375" text="Giá cả" />
+                                          <TableColumn fx:id="col_quantity" prefWidth="77.60003662109375" text="Số lượng" />
+                                          <TableColumn fx:id="col_category" prefWidth="76.800048828125" text="Thể loại" />
+                                          <TableColumn fx:id="col_status" prefWidth="112.0001220703125" text="Trạng thái" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -202,34 +205,31 @@
                                                 <String fx:value="radius" />
                                             </styleClass>
                                         </AnchorPane>
-                                        <AnchorPane layoutX="15.0" layoutY="321.0" prefHeight="265.0" prefWidth="1032.0" AnchorPane.bottomAnchor="13.399999999999977" AnchorPane.leftAnchor="14.4" AnchorPane.rightAnchor="16.0">
+                                        <AnchorPane layoutX="14.0" layoutY="314.0" prefHeight="265.0" prefWidth="1032.0" AnchorPane.bottomAnchor="20.399999999999977" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.40000000000009">
                                             <styleClass>
                                                 <String fx:value="white-bg" />
                                                 <String fx:value="radius" />
                                                 <String fx:value="shadow" />
                                             </styleClass>
                                             <children>
-                                                <Label layoutX="24.0" layoutY="50.0" text="Mã sản phẩm:" />
-                                                <TextField fx:id="htk_maSP" layoutX="113.0" layoutY="46.0" prefHeight="26.0" prefWidth="231.0" styleClass="comboBox" />
-                                                <Label layoutX="24.0" layoutY="90.0" text="Tên sản phẩm:" />
-                                                <TextField fx:id="htk_tenSP" layoutX="113.0" layoutY="86.0" prefHeight="26.0" prefWidth="230.0" styleClass="comboBox" />
-                                                <Label layoutX="24.0" layoutY="130.0" text="Loại:" />
-                                                <ComboBox fx:id="htk_loaiSP" layoutX="113.0" layoutY="126.0" prefHeight="26.0" prefWidth="230.0" promptText="Chọn loại" styleClass="comboBox" />
-                                                <Label layoutX="410.0" layoutY="50.0" text="Số lượng:" />
-                                                <TextField fx:id="htk_luongSP" layoutX="476.0" layoutY="46.0" prefHeight="26.0" prefWidth="231.0" promptText="0" styleClass="comboBox" />
-                                                <Label layoutX="410.0" layoutY="89.0" text="Giá cả ($):" />
-                                                <TextField fx:id="htk_giaSP" layoutX="476.0" layoutY="85.0" prefHeight="26.0" prefWidth="231.0" promptText="\$0.0" styleClass="comboBox" />
-                                                <AnchorPane layoutX="856.0" layoutY="44.0" prefHeight="141.0" prefWidth="137.0">
+                                                <TextField fx:id="bookName" layoutX="58.0" layoutY="45.0" prefHeight="27.0" prefWidth="300.0" promptText="Tên sách" styleClass="comboBox" />
+                                                <TextField fx:id="isbn" layoutX="59.0" layoutY="80.0" prefHeight="27.0" prefWidth="300.0" promptText="Mã ISBN" styleClass="comboBox" />
+                                                <ComboBox fx:id="category" layoutX="59.0" layoutY="115.0" prefHeight="27.0" prefWidth="300.0" promptText="Chọn loại" styleClass="comboBox" />
+                                                <TextField fx:id="author" layoutX="406.0" layoutY="10.0" prefHeight="27.0" prefWidth="300.0" promptText="Tác giả" styleClass="comboBox" />
+                                                <TextField fx:id="price" layoutX="405.0" layoutY="44.0" prefHeight="27.0" prefWidth="300.0" promptText="Giá " styleClass="comboBox" />
+                                                <AnchorPane layoutX="807.0" layoutY="10.0" prefHeight="141.0" prefWidth="137.0">
                                                     <children>
-                                                        <ImageView fx:id="hinhSP" fitHeight="150.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
+                                                        <ImageView fx:id="image" fitHeight="180.0" fitWidth="120.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true" />
                                                     </children></AnchorPane>
-                                                <Button fx:id="nutThem" layoutX="113.0" layoutY="202.0" mnemonicParsing="false" onAction="#nutThemSP" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Thêm" />
-                                                <Button fx:id="nutSua" layoutX="267.0" layoutY="202.0" mnemonicParsing="false" onAction="#nutSuaSP" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Sửa " />
-                                                <Button fx:id="nutXoa" layoutX="419.0" layoutY="202.0" mnemonicParsing="false" onAction="#nutXoaSP" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Xóa" />
-                                                <Button fx:id="nutCaiLai" layoutX="574.0" layoutY="202.0" mnemonicParsing="false" onAction="#nutCaiLai" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Cài lại" />
-                                                <Button fx:id="nutGan" layoutX="863.0" layoutY="204.0" mnemonicParsing="false" onAction="#nutGanHinh" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Gắn hình SP" />
-                                                <Label layoutX="410.0" layoutY="129.0" text="Trạng thái: " />
-                                                <ComboBox fx:id="htk_ttSP" layoutX="476.0" layoutY="125.0" prefHeight="26.0" prefWidth="230.0" promptText="Chọn trạng thái" styleClass="comboBox" />
+                                                <Button fx:id="addButton" layoutX="59.0" layoutY="218.0" mnemonicParsing="false" onAction="#addBook" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Thêm" />
+                                                <Button fx:id="updateButton" layoutX="230.0" layoutY="218.0" mnemonicParsing="false" onAction="#updateBook" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Sửa " />
+                                                <Button fx:id="deleteButton" layoutX="405.0" layoutY="218.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Xóa" />
+                                                <Button fx:id="resetButton" layoutX="574.0" layoutY="218.0" mnemonicParsing="false" onAction="#resetDataBook" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Cài lại" />
+                                                <Button fx:id="putImageButton" layoutX="812.0" layoutY="220.0" mnemonicParsing="false" onAction="#putImage" prefHeight="35.0" prefWidth="127.0" styleClass="btn" text="Gắn hình SP" />
+                                    <TextArea fx:id="description" layoutX="58.0" layoutY="152.0" prefHeight="54.0" prefWidth="647.0" promptText="Mô tả" styleClass="comboBox" />
+                                    <TextField fx:id="quantity" layoutX="405.0" layoutY="79.0" prefHeight="27.0" prefWidth="300.0" promptText="Số lượng" styleClass="comboBox" />
+                                    <TextField fx:id="bookId" editable="false" layoutX="58.0" layoutY="10.0" prefHeight="27.0" prefWidth="300.0" promptText="Mã sách" styleClass="comboBox" />
+                                    <TextField fx:id="publisher" layoutX="405.0" layoutY="115.0" prefHeight="27.0" prefWidth="300.0" promptText="Nhà xuất bản" styleClass="comboBox" />
                                             </children>
                                         </AnchorPane>
                                         <Separator layoutX="15.0" layoutY="311.0" prefHeight="0.0" prefWidth="1029.0" AnchorPane.bottomAnchor="285.6" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="17.600000000000136" />
@@ -295,23 +295,27 @@
                                                 <String fx:value="radius" />
                                             </styleClass>
                                             <children>
-                                                <Label layoutX="14.0" layoutY="21.0" text="Danh sách hóa đơn">
+                                                <Label layoutX="14.0" layoutY="20.0" styleClass="text" text="Danh sách hóa đơn">
                                                     <font>
-                                                        <Font size="18.0" />
+                                                        <Font name="System Bold" size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TableView fx:id="od_danhSachHoaDon" layoutX="14.0" layoutY="68.0" prefHeight="490.0" prefWidth="1009.0" AnchorPane.bottomAnchor="13.600000000000023" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="68.0">
+                                                <TableView fx:id="listOrder" layoutX="14.0" layoutY="68.0" prefHeight="484.0" prefWidth="1010.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="68.0">
                                                     <columns>
-                                                        <TableColumn fx:id="od_maHoaDon" prefWidth="127.99996376037598" text="Mã hóa đơn " />
-                                                        <TableColumn fx:id="od_maKhachHang" prefWidth="109.5999755859375" text="Mã khách hàng" />
-                                                        <TableColumn fx:id="od_tongTien" prefWidth="109.5999755859375" text="Tổng tiền " />
-                                                        <TableColumn fx:id="od_ngayLap" prefWidth="109.5999755859375" text="Ngày lập " />
-                                                        <TableColumn fx:id="od_maNhanVien" prefWidth="109.5999755859375" text="Mã nhân viên " />
+                                                        <TableColumn fx:id="col_orderId" prefWidth="127.99996376037598" text="Mã hóa đơn " />
+                                                        <TableColumn fx:id="col_order_customerId" prefWidth="109.5999755859375" text="Mã khách hàng" />
+                                                        <TableColumn fx:id="col_order_employeeId" prefWidth="109.5999755859375" text="Mã nhân viên" />
+                                                        <TableColumn fx:id="col_order_totalAmount" prefWidth="109.5999755859375" text="Số lượng" />
+                                                        <TableColumn fx:id="col_order_totalPrice" prefWidth="109.5999755859375" text="Tổng tiền" />
+                                          <TableColumn fx:id="col_order_status" prefWidth="109.5999755859375" text="Trạng thái" />
+                                          <TableColumn fx:id="col_order_createAt" prefWidth="109.5999755859375" text="Ngày lập" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                     </columnResizePolicy>
                                                 </TableView>
+                                    <TextField layoutX="716.0" layoutY="25.0" prefHeight="26.0" prefWidth="306.0" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="1000.0" layoutY="44.0" size="15" styleClass="text" wrappingWidth="14.342930793762207" />
                                             </children>
                                         </AnchorPane>
                                     </children>

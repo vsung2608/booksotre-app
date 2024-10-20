@@ -3,12 +3,6 @@ package com.booksotre.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-
-import com.booksotre.model.EmployeeModel;
-import com.booksotre.service.IEmployeeService;
-import com.booksotre.service.impl.EmployeeService;
-import com.booksotre.utils.AlertInfo;
-import com.booksotre.utils.AlertUnit;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +21,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import com.booksotre.model.CustomerModel;
+import com.booksotre.service.ICustomerService;
+import com.booksotre.service.impl.CustomerService;
+import com.booksotre.utils.AlertInfo;
+import com.booksotre.utils.AlertUnit;
 
 /**
  * @author PC
@@ -117,36 +117,39 @@ public class LoginController implements Initializable {
     @FXML
     private AnchorPane side_form;
 
-    private final IEmployeeService employeeService = new EmployeeService();
+    private final ICustomerService customerService = new CustomerService();
 
     private final List<String> gender = new ArrayList<>();
     private final List<String> dob = new ArrayList<>();
     private Alert alert;
 
     public void createAccount() {
-        if (rg_fullName.getText().isEmpty() || rg_phone.getText().isEmpty() || rg_address.getText().isEmpty()
-                || rg_gender.getSelectionModel().getSelectedItem() == null || rg_password.getText().isEmpty()
-                || rg_dob.getSelectionModel().getSelectedItem() == null || rg_email.getText().isEmpty()) {
+        if (rg_fullName.getText().isEmpty()
+                || rg_phone.getText().isEmpty()
+                || rg_address.getText().isEmpty()
+                || rg_gender.getSelectionModel().getSelectedItem() == null
+                || rg_password.getText().isEmpty()
+                || rg_dob.getSelectionModel().getSelectedItem() == null
+                || rg_email.getText().isEmpty()) {
             alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
         } else {
 
-            if (!employeeService.checkAccountExist(rg_email.getText())) {
+            if (customerService.checkAccountExist(rg_email.getText())) {
                 alert = AlertUnit.generateAlert(AlertInfo.EMAIL_EXISTED);
             } else if (rg_password.getText().length() < 8) {
                 alert = AlertUnit.generateAlert(AlertInfo.PASSWORD_INVALID);
             } else {
-                EmployeeModel employee = EmployeeModel.builder()
+                CustomerModel customer = CustomerModel.builder()
                         .email(rg_email.getText())
                         .password(rg_password.getText())
-                        .name(rg_fullName.getText())
+                        .customerName(rg_fullName.getText())
                         .phone(rg_phone.getText())
                         .dob(rg_dob.getSelectionModel().getSelectedItem().toString())
                         .address(rg_address.getText())
                         .gender(rg_gender.getSelectionModel().getSelectedItem().toString())
-                        .create_at(new java.sql.Date(new java.util.Date().getTime()))
                         .build();
 
-                employeeService.createAccount(employee);
+                customerService.createAccount(customer);
 
                 alert = AlertUnit.generateAlert(AlertInfo.CREAT_ACCOUNT_SUCCESS);
 
@@ -171,11 +174,10 @@ public class LoginController implements Initializable {
         if (lg_password.getText().isEmpty() || lg_email.getText().isEmpty()) {
             alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
         } else {
-            if (!employeeService.checkAccountExist(lg_email.getText())) {
+            if (!customerService.checkAccountExist(lg_email.getText())) {
                 alert = AlertUnit.generateAlert(AlertInfo.EMAIL_PASSWORD_INVALID);
             } else {
-                System.out.println(lg_email.getText() + lg_password.getText());
-                if (employeeService.passwordValid(lg_email.getText(), lg_password.getText())) {
+                if (customerService.passwordValid(lg_email.getText(), lg_password.getText())) {
                     alert = AlertUnit.generateAlert(AlertInfo.LOGIN_SUCCESSFUL);
 
                     Parent root = null;
@@ -196,7 +198,6 @@ public class LoginController implements Initializable {
                     alert = AlertUnit.generateAlert(AlertInfo.EMAIL_PASSWORD_INVALID);
                 }
             }
-
         }
     }
 
@@ -222,13 +223,9 @@ public class LoginController implements Initializable {
         lg_loginForm.setVisible(false);
     }
 
-    public void forgotPass() {
+    public void forgotPass() {}
 
-    }
-
-    public void changePass() {
-
-    }
+    public void changePass() {}
 
     public void resetRegisterForm() {
         rg_fullName.setText("");
@@ -288,8 +285,5 @@ public class LoginController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 }
-

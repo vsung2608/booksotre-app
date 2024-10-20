@@ -17,7 +17,7 @@
             <children>
                 <AnchorPane fx:id="lg_loginForm" layoutX="300.0" prefHeight="400.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.8000000000000114" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label layoutX="33.0" layoutY="66.0" styleClass="head-lable" text="Đăng nhập " textFill="#1e8089">
+                        <Label layoutX="33.0" layoutY="66.0" styleClass="head-lable" text="Đăng nhập " textFill="#2096a1">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -25,7 +25,7 @@
                         <TextField fx:id="lg_email" layoutX="33.0" layoutY="154.0" prefHeight="30.0" prefWidth="231.0" promptText="email" styleClass="textField" />
                         <PasswordField fx:id="lg_password" layoutX="34.0" layoutY="194.0" prefHeight="30.0" prefWidth="231.0" promptText="mật khẩu" styleClass="textField" />
                         <Button fx:id="lg_loginbtn" layoutX="33.0" layoutY="266.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="43.0" prefWidth="231.0" styleClass="login-btn" text="Đăng nhập" />
-                        <Hyperlink fx:id="lg_forgotPass" layoutX="30.0" layoutY="232.0" onAction="#switchForgotPass" text="Quên mật khẩu?">
+                        <Hyperlink fx:id="lg_forgotPass" layoutX="30.0" layoutY="232.0" onAction="#switchForgotPass" styleClass="text" text="Quên mật khẩu?">
                             <font>
                                 <Font size="13.0" />
                             </font>

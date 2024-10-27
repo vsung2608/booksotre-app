@@ -14,4 +14,6 @@ public interface IEmployeeService {
     void updateEmployee(EmployeeModel employee);
 
     void changePassword(String email, String newPassword);
+
+    void updateProfile(EmployeeModel employee);
 }

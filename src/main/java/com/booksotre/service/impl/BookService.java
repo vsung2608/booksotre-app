@@ -17,6 +17,11 @@ public class BookService implements IBookService {
     }
 
     @Override
+    public List<BookModel> findByTitle(String title) {
+        return bookDAO.findByName(title);
+    }
+
+    @Override
     public void createBook(BookModel book) {
         bookDAO.createBook(book);
     }

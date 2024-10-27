@@ -20,5 +20,6 @@ public class EmployeeModel {
     private String dob;
     private String role;
     private Double salary;
+    private String avatar;
     private Timestamp createAt;
 }

@@ -1,5 +1,6 @@
 package com.booksotre.DAO;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.booksotre.mapper.IRowMapper;
@@ -14,4 +15,8 @@ public interface GenericDAO<T> {
     void delete(String query, Object... prm);
 
     Integer count(String query, Object... prm);
+
+    Double countDouble(String query, Object... prm);
+
+    LinkedHashMap<String, Integer> countByDate(String query, Object... prm);
 }

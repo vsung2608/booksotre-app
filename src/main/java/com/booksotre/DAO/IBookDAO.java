@@ -7,6 +7,8 @@ import com.booksotre.model.BookModel;
 public interface IBookDAO {
     List<BookModel> findAll();
 
+    List<BookModel> findByName(String name);
+
     void createBook(BookModel book);
 
     void updateBook(BookModel book);

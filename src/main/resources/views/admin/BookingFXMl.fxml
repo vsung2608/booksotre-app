@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1062.0" stylesheets="@../../assets/css/admin.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.admin.BookingController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="63.0" prefHeight="521.0" prefWidth="692.0" AnchorPane.bottomAnchor="15.199999999999932" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="355.5999999999999" AnchorPane.topAnchor="63.0">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+            <String fx:value="white-bg" />
+         </styleClass>
+         <children>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.2" prefWidth="691.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane fx:id="thanhCuonSP" layoutX="10.4" prefHeight="554.0" prefWidth="668.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
+                     <content>
+                        <GridPane fx:id="containBook" prefHeight="35.0" prefWidth="100.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="718.0" layoutY="59.0" prefHeight="528.0" prefWidth="330.0" AnchorPane.bottomAnchor="12.799999999999955" AnchorPane.rightAnchor="13.600000000000023" AnchorPane.topAnchor="59.0">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+            <String fx:value="white-bg" />
+         </styleClass>
+         <children>
+            <TableView fx:id="tableOrder" layoutX="7.0" layoutY="8.0" prefHeight="292.0" prefWidth="316.0">
+               <columns>
+                  <TableColumn fx:id="col_bookID" prefWidth="124.79998779296875" text="Mã sản phẩm " />
+                  <TableColumn fx:id="col_bookQuantity" prefWidth="100.800048828125" text="Số lượng " />
+                  <TableColumn fx:id="col_bookPrice" prefWidth="101.5999755859375" text="Giá" />
+               </columns>
+            </TableView>
+            <Label layoutX="43.0" layoutY="315.0" text="Tổng tiền: " />
+            <Label fx:id="totalPriceOrder" layoutX="132.0" layoutY="315.0" text="\$0.0" />
+            <Button layoutX="7.0" layoutY="432.0" mnemonicParsing="false" onAction="#nutThanhToan" prefHeight="36.0" prefWidth="315.0" styleClass="btn" text="Thanh toán " />
+            <Button layoutX="7.0" layoutY="484.0" mnemonicParsing="false" onAction="#nutXoaTTDonHang" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Xóa " />
+            <Button layoutX="175.0" layoutY="484.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Hóa đơn " />
+            <Label layoutX="43.0" layoutY="345.0" text="Mã khuyến mại:  " />
+            <TextField fx:id="mn_soLuongSP" layoutX="132.0" layoutY="340.0" prefHeight="26.0" prefWidth="158.0" promptText="Nhập mã khuyến mại" />
+            <Label layoutX="43.0" layoutY="377.0" text="Email khách hàng " />
+            <TextField fx:id="mn_maKH" layoutX="132.0" layoutY="372.0" prefHeight="26.0" prefWidth="158.0" promptText="Nhập email khách hàng" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="searchTextField" layoutX="660.8" layoutY="14.0" prefHeight="26.0" prefWidth="392.0" styleClass="textField" />
+      <FontAwesomeIcon fill="#bf0199" glyphName="SEARCH" layoutX="1030.0" layoutY="34.0" onMouseClicked="#searchProduct" size="20" />
+      <Label layoutX="22.0" layoutY="19.0" styleClass="text" text="Quản lý sách">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

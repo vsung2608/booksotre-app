@@ -12,4 +12,6 @@ public interface IEmployeeDAO {
     void updateAccount(EmployeeModel employee);
 
     void changePassword(String email, String newPassword);
+
+    void updateMyInfo(EmployeeModel employee);
 }

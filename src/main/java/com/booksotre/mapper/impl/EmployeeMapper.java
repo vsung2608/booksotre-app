@@ -13,15 +13,16 @@ public class EmployeeMapper implements IRowMapper<EmployeeModel> {
         try {
             employeeModel = EmployeeModel.builder()
                     .employeeId(rs.getInt("employee_id"))
-                    .employeeName(rs.getString("name"))
+                    .employeeName(rs.getString("employee_name"))
                     .email(rs.getString("email"))
                     .phone(rs.getString("phone"))
-                    .role(rs.getString("position"))
+                    .role(rs.getString("role"))
                     .address(rs.getString("address"))
                     .password(rs.getString("password"))
                     .gender(rs.getString("gender"))
                     .dob(rs.getString("create_at"))
                     .salary(rs.getDouble("salary"))
+                    .dob(String.valueOf(rs.getDate("dob")))
                     .build();
         } catch (SQLException e) {
             throw new RuntimeException(e);

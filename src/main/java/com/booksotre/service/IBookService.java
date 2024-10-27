@@ -7,6 +7,8 @@ import com.booksotre.model.BookModel;
 public interface IBookService {
     List<BookModel> findAll();
 
+    List<BookModel> findByTitle(String title);
+
     void createBook(BookModel book);
 
     void updateBook(BookModel book);

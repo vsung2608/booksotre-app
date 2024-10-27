@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../assets/css/login.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.LoginController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../assets/css/login.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.admin.LoginController">
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -43,13 +43,13 @@
                         <PasswordField fx:id="rg_password" layoutX="33.0" layoutY="277.0" prefHeight="30.0" prefWidth="231.0" promptText="mật khẩu" styleClass="textField" />
                         <Button fx:id="rg_registerBtn" layoutX="33.0" layoutY="324.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="43.0" prefWidth="231.0" styleClass="login-btn" text="Đăng ký" />
                         <ComboBox fx:id="rg_gender" layoutX="33.0" layoutY="200.0" prefHeight="26.0" prefWidth="102.0" promptText="Giới tính" styleClass="comboBox" />
-                        <ComboBox fx:id="rg_dob" layoutX="153.0" layoutY="201.0" prefHeight="26.0" prefWidth="111.0" promptText="Năm sinh" styleClass="comboBox" stylesheets="@../assets/css/login.css" />
+                        <ComboBox fx:id="rg_dob" layoutX="153.0" layoutY="201.0" prefHeight="26.0" prefWidth="111.0" promptText="Năm sinh" styleClass="comboBox" stylesheets="@../../assets/css/login.css" />
                         <TextField fx:id="rg_address" layoutX="33.0" layoutY="159.0" prefHeight="30.0" prefWidth="231.0" promptText="Địa chỉ" styleClass="textField" />
                         <TextField fx:id="rg_phone" layoutX="33.0" layoutY="119.0" prefHeight="30.0" prefWidth="231.0" promptText="Số điện thoại" styleClass="textField" />
                         <TextField fx:id="rg_fullName" layoutX="33.0" layoutY="81.0" prefHeight="30.0" prefWidth="231.0" promptText="Họ và tên" styleClass="textField" />
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="side_form" prefHeight="400.0" prefWidth="300.0" styleClass="gradient" stylesheets="@../assets/css/login.css" AnchorPane.bottomAnchor="0.0">
+                <AnchorPane fx:id="side_form" prefHeight="400.0" prefWidth="300.0" styleClass="gradient" stylesheets="@../../assets/css/login.css" AnchorPane.bottomAnchor="0.0">
                     <children>
                         <Label layoutX="78.0" layoutY="265.0" text="Tạo tài khoản" textFill="WHITE">
                             <font>

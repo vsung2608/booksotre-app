@@ -9,7 +9,7 @@ import com.booksotre.model.EmployeeModel;
 public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployeeDAO {
     @Override
     public int checkAccountExistence(String email) {
-        String query = "SELECT COUNT(*) FROM Customer WHERE email = ?;";
+        String query = "SELECT COUNT(*) FROM Employee WHERE email = ?;";
         return count(query, email);
     }
 
@@ -17,7 +17,7 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
     public void createAccount(EmployeeModel employee) {
         String query =
                 """
-				INSERT INTO Employee(email, password, employee_name, role, gender, dob, phone, address, salary)
+				INSERT INTO Employee(email, password, employee_name, role, gender, dob, phone, address, salary, avatar)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 				""";
         insert(
@@ -30,14 +30,15 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
                 employee.getDob(),
                 employee.getPhone(),
                 employee.getAddress(),
-                employee.getSalary());
+                employee.getSalary(),
+                employee.getAvatar());
     }
 
     @Override
     public EmployeeModel getEmployeeByEmail(String email) {
         String query =
                 """
-				SELECT employee_id, email, password, name, position, gender, dob, phone, address, create_at
+				SELECT employee_id, email, password, employee_name, role, gender, dob, phone, address, create_at, salary, avatar
 				FROM Employee
 				WHERE email = ?;
 				""";
@@ -49,7 +50,7 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
     public void updateAccount(EmployeeModel employee) {
         String query =
                 """
-				UPDATE Employee SET email = ?, name = ?, position = ?, gender = ?, dob = ?, phone = ?, address = ?
+				UPDATE Employee SET email = ?, employee_name = ?, role = ?, gender = ?, dob = ?, phone = ?, address = ?, avatar = ?
 				WHERE employee_id = ?;
 				""";
         update(
@@ -70,5 +71,22 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
 				UPDATE Employee SET password = ? WHERE email = ?;
 				""";
         update(query, newPassword, email);
+    }
+
+    @Override
+    public void updateMyInfo(EmployeeModel employee) {
+        String query =
+                """
+				UPDATE Employee SET email = ?, employee_name = ?, gender = ?, phone = ?, address = ?, avatar = ?
+				WHERE employee_id = ?;
+				""";
+        update(
+                query,
+                employee.getEmail(),
+                employee.getEmployeeName(),
+                employee.getGender(),
+                employee.getPhone(),
+                employee.getAddress(),
+                employee.getEmployeeId());
     }
 }

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1062.0" stylesheets="@../../assets/css/admin.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.admin.HomeController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="56.8" prefHeight="189.0" prefWidth="1036.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="57.0">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+            <String fx:value="radius" />
+         </styleClass>
+         <children>
+            <ScrollPane layoutX="8.0" layoutY="8.0" prefHeight="175.0" prefWidth="1020.0" styleClass="transparent" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="8.0">
+               <content>
+                  <AnchorPane prefHeight="178.0" prefWidth="1001.0">
+                     <children>
+                        <AnchorPane layoutX="6.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="DOLLAR" layoutX="20.0" layoutY="94.0" size="60" />
+                              <Label layoutX="100.0" layoutY="103.0" text="Thu nhập theo ngày" textFill="#fafafa">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="today_income" alignment="CENTER_RIGHT" layoutX="106.0" prefHeight="35.0" prefWidth="130.0" text="\$0.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="268.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="MONEY" layoutX="20.0" layoutY="94.0" size="60" />
+                              <Label layoutX="159.0" layoutY="103.0" text="Tổng thu nhập" textFill="#fafafa" />
+                              <Label fx:id="total_income" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="-4.0" prefHeight="35.0" prefWidth="112.0" text="\$0.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="1052.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" layoutX="20.0" layoutY="94.0" size="60" />
+                              <Label layoutX="101.0" layoutY="103.0" text="Số đơn hàng đang chờ xác nhận" textFill="#fafafa" />
+                              <Label fx:id="waitconfirm_order" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="8.0" prefHeight="35.0" prefWidth="112.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="530.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="BAN" layoutX="20.0" layoutY="94.0" size="60" />
+                              <Label layoutX="125.0" layoutY="103.0" text="Số đơn hàng bị hủy " textFill="#fafafa" />
+                              <Label fx:id="error_order" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="7.0" prefHeight="35.0" prefWidth="114.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="791.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="CHECK" layoutX="20.0" layoutY="94.0" size="60" />
+                              <Label layoutX="125.0" layoutY="103.0" text="Số đơn hàng thành công" textFill="#fafafa" />
+                              <Label fx:id="sucess_order" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="7.0" prefHeight="35.0" prefWidth="114.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="260.8" prefHeight="322.0" prefWidth="1035.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="261.0">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+            <String fx:value="radius" />
+         </styleClass>
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.4" prefHeight="346.0" prefWidth="613.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="408.0" AnchorPane.topAnchor="14.0">
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="radius" />
+                  <String fx:value="white-bg" />
+               </styleClass>
+               <children>
+                  <AreaChart fx:id="chart1" layoutX="10.0" layoutY="-27.0" prefHeight="346.0" prefWidth="433.0" title="Biểu đồ dữ liệu thống kê hóa đơn " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </AreaChart>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="547.0" layoutY="15.2" prefHeight="346.0" prefWidth="383.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="radius" />
+                  <String fx:value="white-bg" />
+               </styleClass>
+               <children>
+                  <PieChart fx:id="pieChart" layoutX="8.0" layoutY="6.0" prefHeight="292.0" prefWidth="383.2" title="Biểu đồ thống kê thu nhập" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Separator layoutX="6.0" layoutY="246.0" prefHeight="16.0" prefWidth="1050.0" />
+      <Label layoutX="14.0" layoutY="19.0" styleClass="text" text="Báo cáo thống kê">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="pickDateTo" layoutX="791.0" layoutY="17.0" prefHeight="27.0" prefWidth="205.0" promptText="đến ngày" styleClass="textField" />
+      <FontAwesomeIcon fill="#d40d84" glyphName="FILTER" layoutX="1016.0" layoutY="39.0" size="25" />
+      <DatePicker fx:id="pickDateFrom" layoutX="528.0" layoutY="17.0" prefHeight="27.0" prefWidth="206.0" promptText="Từ ngày" styleClass="textField" AnchorPane.rightAnchor="280.0" />
+   </children>
+</AnchorPane>

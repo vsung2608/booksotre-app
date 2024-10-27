@@ -12,4 +12,5 @@ public class OrderDetailModel {
     private Integer orderId;
     private Integer bookId;
     private Integer quantity;
+    private Double price;
 }

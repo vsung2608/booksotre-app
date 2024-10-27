@@ -15,6 +15,16 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
     }
 
     @Override
+    public List<BookModel> findByName(String name) {
+        String query = """
+               SELECT book_id, category_id, title, isbn, author, publisher, price, quantity, image, description
+               FROM Book
+               WHERE title LIKE ?
+               """;
+        return query(query, new BookMapper(), "%" + name + "%");
+    }
+
+    @Override
     public void createBook(BookModel book) {
         String query =
                 """

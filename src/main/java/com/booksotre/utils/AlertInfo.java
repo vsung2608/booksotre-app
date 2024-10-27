@@ -20,7 +20,13 @@ public enum AlertInfo {
     DELETE_SUCCESSFUL("Thông báo", "Xóa thông tin thành công", Alert.AlertType.INFORMATION),
     CANCEL("Thông báo hủy", "Đã hủy thao tác", Alert.AlertType.INFORMATION),
     CHOOSE_OBJECT("Thông báo", "VUi lòng chọn đối tượng muốn xóa", Alert.AlertType.ERROR),
-    CONFIRM_DELETE("Thông báo", "Bạn có chắc muốn muốn xóa thông tin của đối tượng này không?", Alert.AlertType.INFORMATION)
+    CONFIRM_DELETE("Thông báo", "Bạn có chắc muốn muốn xóa thông tin của đối tượng này không?", Alert.AlertType.CONFIRMATION),
+    CHOOSE_QUANTITY("Thông báo", "VUi lòng chọn số lượng muốn thêm vào hóa đơn", Alert.AlertType.ERROR),
+    NOT_ENOUGH_BOOK("Thông báo", "Số lượng sách trong kho không đủ", Alert.AlertType.ERROR),
+    CONFIRM_ADD("Thông báo", "Bạn có chắc muốn muốn thêm thông tin của đối tượng này không?", Alert.AlertType.CONFIRMATION),
+    OLD_PASSWORD_INCORRECT("Thông báo lỗi", "Mật khẩu cũ không chính xác!", Alert.AlertType.ERROR),
+    CONFIRMNEWPASS_INCORRECT("Thông báo lỗi", "Mật khẩu xác nhận không chính xác!", Alert.AlertType.ERROR),
+    ENTER_KEYWORD("Thông báo lỗi", "Vui lòng nhập từ khóa để tìm kiếm", Alert.AlertType.ERROR),
     ;
 
     private final String title;

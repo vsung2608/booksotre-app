@@ -11,6 +11,7 @@ public class EmployeeService implements IEmployeeService {
     private final IEmployeeDAO employeeDAO = new EmployeeDAO();
 
     public boolean checkAccountExist(String email) {
+        System.out.println(employeeDAO.checkAccountExistence(email));
         return employeeDAO.checkAccountExistence(email) == 0;
     }
 
@@ -40,5 +41,10 @@ public class EmployeeService implements IEmployeeService {
     public void changePassword(String email, String newPassword) {
         String hashPass = PasswordUtil.hashPassword(newPassword);
         employeeDAO.changePassword(email, hashPass);
+    }
+
+    @Override
+    public void updateProfile(EmployeeModel employee) {
+        employeeDAO.updateMyInfo(employee);
     }
 }

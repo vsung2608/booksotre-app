@@ -136,6 +136,6 @@ public class fakeData {
                 .build());
 
         // In thông tin của 10 nhân viên đã tạo
-        employees.forEach(employeeService::createAccount);
+        // employees.forEach(employeeService::createAccount);
     }
 }

@@ -1,7 +1,9 @@
 package com.booksotre.DAO.impl;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.booksotre.DAO.GenericDAO;
@@ -101,6 +103,45 @@ public class AbstractDAO<T> implements GenericDAO<T> {
         return cnt;
     }
 
+    @Override
+    public Double countDouble(String query, Object... prm) {
+        Connection con = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        double cnt = 0;
+
+        try {
+            ps = con.prepareStatement(query);
+            setParameter(ps, prm);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                cnt = rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
+    }
+
+    @Override
+    public LinkedHashMap<String, Integer> countByDate(String query, Object... prm) {
+        Connection con = getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+        try {
+            ps = con.prepareStatement(query);
+            setParameter(ps, prm);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                map.put(rs.getString(1), rs.getInt(2));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return map;
+    }
+
     @SneakyThrows
     public void setParameter(PreparedStatement ps, Object... prm) {
         for (int i = 0; i < prm.length; i++) {
@@ -118,6 +159,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                 case "Timestamp" -> ps.setTimestamp(i + 1, (Timestamp) prm[i]);
                 case "Long" -> ps.setLong(i + 1, (Long) prm[i]);
                 case "Float" -> ps.setFloat(i + 1, (Float) prm[i]);
+                case "BigDecimal" -> ps.setBigDecimal(i + 1, (BigDecimal) prm[i]);
                 default -> throw new SQLException(
                         "Unsupported parameter type: " + prm[i].getClass().getName());
             }

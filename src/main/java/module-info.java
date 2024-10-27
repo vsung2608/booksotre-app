@@ -9,10 +9,10 @@ module com.booksotre {
     requires mysql.connector.j;
     requires jbcrypt;
 
-    opens com.booksotre.controller to
+    opens com.booksotre.controller.admin to
             javafx.fxml;
 
-    exports com.booksotre.controller;
+    exports com.booksotre.controller.admin;
 
     opens com.booksotre.main to
             javafx.graphics;
@@ -21,4 +21,5 @@ module com.booksotre {
 
     opens com.booksotre.model to
             javafx.base;
+
 }

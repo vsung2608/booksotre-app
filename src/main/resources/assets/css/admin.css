@@ -84,4 +84,28 @@
     -fx-text-fill: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
 }
 
+.avatar{
+    -fx-border-radius: 50%;
+}
 
+.line{
+    -fx-stroke: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
+}
+
+.textField{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #4285f4, #9b72cb, #d96570);
+    -fx-border-width: .5px;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: green;
+}
+
+.default-color1.chart-series-line {
+    -fx-stroke: red;
+}
+
+.default-color2.chart-series-line {
+    -fx-stroke: orange;
+}

@@ -11,10 +11,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/LoginFXML.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/admin/LoginFXML.fxml")));
 
         Scene scene = new Scene(root);
-        stage.setTitle("Cafe Shop System");
+        stage.setTitle("Hệ thông cửa hàng bán sách");
         stage.setMinHeight(400);
         stage.setWidth(600);
         stage.setScene(scene);

@@ -8,7 +8,9 @@ import com.booksotre.mapper.IRowMapper;
 public interface GenericDAO<T> {
     <T> List<T> query(String query, IRowMapper<T> rowMapper, Object... prm);
 
-    void insert(String query, Object... prm);
+    int insert(String query, Object... prm);
+
+    void insertList(String query, List<Object> list);
 
     void update(String query, Object... prm);
 
@@ -19,4 +21,6 @@ public interface GenericDAO<T> {
     Double countDouble(String query, Object... prm);
 
     LinkedHashMap<String, Integer> countByDate(String query, Object... prm);
+
+    <U> List<U> countByDateList(String query, Object... prm);
 }

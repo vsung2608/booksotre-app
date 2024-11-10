@@ -1,14 +1,12 @@
 package com.booksotre.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class CustomerModel {
     private Integer customerId;
     private String email;
@@ -17,6 +15,7 @@ public class CustomerModel {
     private String phone;
     private String address;
     private String gender;
-    private String dob;
+    private LocalDate dob;
     private Timestamp createAt;
+    private String avatar;
 }

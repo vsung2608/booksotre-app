@@ -1,13 +1,12 @@
 package com.booksotre.controller.admin;
 
-import com.booksotre.model.BookModel;
-import com.booksotre.model.CategoryModel;
-import com.booksotre.service.IBookService;
-import com.booksotre.service.ICategoryService;
-import com.booksotre.service.impl.BookService;
-import com.booksotre.service.impl.CategoryService;
-import com.booksotre.utils.AlertInfo;
-import com.booksotre.utils.AlertUnit;
+import java.io.File;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,13 +17,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.util.*;
+import com.booksotre.model.BookModel;
+import com.booksotre.model.CategoryModel;
+import com.booksotre.service.IBookService;
+import com.booksotre.service.ICategoryService;
+import com.booksotre.service.impl.BookService;
+import com.booksotre.service.impl.CategoryService;
+import com.booksotre.utils.AlertInfo;
+import com.booksotre.utils.AlertUnit;
 
 public class ProductManagementController implements Initializable {
 
@@ -109,7 +109,7 @@ public class ProductManagementController implements Initializable {
         category.setItems(ds);
     }
 
-    public int getIdByNameCategory(String name){
+    public int getIdByNameCategory(String name) {
         int id = 0;
         for (CategoryModel cat : typeBook) {
             if (cat.getCategoryName().equals(name)) {
@@ -120,7 +120,7 @@ public class ProductManagementController implements Initializable {
         return id;
     }
 
-    public void setListDataBook(){
+    public void setListDataBook() {
         listDataBook = FXCollections.observableArrayList(bookService.findAll());
     }
 
@@ -155,16 +155,17 @@ public class ProductManagementController implements Initializable {
         quantity.setText(String.valueOf(book.getQuantity()));
         description.setText(book.getDescription());
         typeBook.forEach(type -> {
-            if(Objects.equals(type.getCategoryId(), book.getCategoryId())){
+            if (Objects.equals(type.getCategoryId(), book.getCategoryId())) {
                 category.setValue(type.getCategoryName());
             }
         });
 
         linkImage = book.getImage();
         if (linkImage != null) {
-            Image linkI = new Image(Objects.requireNonNull(getClass().getResourceAsStream(linkImage)), 120, 180, false, true);
+            Image linkI =
+                    new Image(Objects.requireNonNull(getClass().getResourceAsStream(linkImage)), 120, 180, false, true);
             image.setImage(linkI);
-        }else{
+        } else {
             image.setImage(null);
         }
     }
@@ -193,7 +194,8 @@ public class ProductManagementController implements Initializable {
                         .description(description.getText())
                         .categoryId(Integer.valueOf(category.getSelectionModel().getSelectedItem()))
                         .image(linkImage)
-                        .categoryId(getIdByNameCategory(category.getSelectionModel().getSelectedItem()))
+                        .categoryId(
+                                getIdByNameCategory(category.getSelectionModel().getSelectedItem()))
                         .build();
 
                 alert = AlertUnit.generateAlert(AlertInfo.CONFIRM_ADD);
@@ -205,8 +207,7 @@ public class ProductManagementController implements Initializable {
 
                     setListBook();
                     resetDataBook();
-                }else alert = AlertUnit.generateAlert(AlertInfo.CANCEL);
-
+                } else alert = AlertUnit.generateAlert(AlertInfo.CANCEL);
             }
         }
     }
@@ -238,7 +239,7 @@ public class ProductManagementController implements Initializable {
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 bookService.updateBook(book);
-                if(selectedImage != null){
+                if (selectedImage != null) {
                     saveImageIntoProject();
                 }
                 alert = AlertUnit.generateAlert(AlertInfo.UPDATE_SUCCESSFUL);
@@ -284,7 +285,7 @@ public class ProductManagementController implements Initializable {
         }
     }
 
-    public void saveImageIntoProject(){
+    public void saveImageIntoProject() {
         try {
             File destinationFile = new File("src/main/resources" + linkImage);
             Files.copy(selectedImage.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -307,10 +308,10 @@ public class ProductManagementController implements Initializable {
         image.setImage(null);
     }
 
-    public void searchProduct(){
-        if(searchTextField.getText().isEmpty()){
+    public void searchProduct() {
+        if (searchTextField.getText().isEmpty()) {
             alert = AlertUnit.generateAlert(AlertInfo.ENTER_KEYWORD);
-        }else{
+        } else {
             listDataBook = FXCollections.observableArrayList(bookService.findByTitle(searchTextField.getText()));
             setListBook();
         }

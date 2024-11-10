@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="1104.0" styleClass="dasboard_background" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.user.BookController">
+   <children>
+      <ScrollPane layoutX="15.2" layoutY="41.0" prefHeight="197.0" prefWidth="1074.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="41.0">
+         <content>
+            <HBox fx:id="containBook" alignment="CENTER_LEFT" prefHeight="181.0" prefWidth="1514.0" spacing="20.0">
+               <styleClass>
+                  <String fx:value="bg-white" />
+                  <String fx:value="bg-radius" />
+               </styleClass>
+            </HBox>
+         </content>
+         <styleClass>
+            <String fx:value="bg-white" />
+            <String fx:value="bg-radius" />
+         </styleClass>
+      </ScrollPane>
+      <Label layoutX="15.0" layoutY="18.0" text="Sản phẩm nổi nật" textFill="#817f7f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="containAllBook" layoutX="15.2" layoutY="270.4" prefHeight="274.0" prefWidth="1218.0" style="-fx-background-color: #f3fbf5;" styleClass="transparent" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="270.0">
+         <content>
+            <GridPane fx:id="containChildBook" prefHeight="19.0" prefWidth="64.0" style="-fx-background-color: #f3fbf5;">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="15.0" layoutY="248.0" text="Sản phẩm " textFill="#817f7f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -4,11 +4,8 @@ import java.sql.Timestamp;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class OrdersModel {
     private Integer orderId;
     private Integer customerId;

@@ -44,26 +44,29 @@
             <String fx:value="white-bg" />
          </styleClass>
          <children>
-            <TableView fx:id="tableOrder" layoutX="7.0" layoutY="8.0" prefHeight="292.0" prefWidth="316.0">
+            <TableView fx:id="tableOrder" layoutX="7.0" layoutY="8.0" prefHeight="292.0" prefWidth="316.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.199999999999989" AnchorPane.topAnchor="8.0">
                <columns>
                   <TableColumn fx:id="col_bookID" prefWidth="124.79998779296875" text="Mã sản phẩm " />
                   <TableColumn fx:id="col_bookQuantity" prefWidth="100.800048828125" text="Số lượng " />
                   <TableColumn fx:id="col_bookPrice" prefWidth="101.5999755859375" text="Giá" />
                </columns>
             </TableView>
-            <Label layoutX="43.0" layoutY="315.0" text="Tổng tiền: " />
-            <Label fx:id="totalPriceOrder" layoutX="132.0" layoutY="315.0" text="\$0.0" />
-            <Button layoutX="7.0" layoutY="432.0" mnemonicParsing="false" onAction="#nutThanhToan" prefHeight="36.0" prefWidth="315.0" styleClass="btn" text="Thanh toán " />
-            <Button layoutX="7.0" layoutY="484.0" mnemonicParsing="false" onAction="#nutXoaTTDonHang" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Xóa " />
-            <Button layoutX="175.0" layoutY="484.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Hóa đơn " />
-            <Label layoutX="43.0" layoutY="345.0" text="Mã khuyến mại:  " />
-            <TextField fx:id="mn_soLuongSP" layoutX="132.0" layoutY="340.0" prefHeight="26.0" prefWidth="158.0" promptText="Nhập mã khuyến mại" />
-            <Label layoutX="43.0" layoutY="377.0" text="Email khách hàng " />
-            <TextField fx:id="mn_maKH" layoutX="132.0" layoutY="372.0" prefHeight="26.0" prefWidth="158.0" promptText="Nhập email khách hàng" />
+            <Label layoutX="8.0" layoutY="315.0" text="Tổng tiền: " AnchorPane.bottomAnchor="195.4" />
+            <Label fx:id="totalPriceOrder" layoutX="169.0" layoutY="315.0" text="\$0.0" AnchorPane.bottomAnchor="195.20000000000002">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Button layoutX="7.0" layoutY="432.0" mnemonicParsing="false" onAction="#payment" prefHeight="36.0" prefWidth="315.0" styleClass="btn" text="Thanh toán " AnchorPane.bottomAnchor="60.0" />
+            <Button layoutX="7.0" layoutY="484.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Xóa " AnchorPane.bottomAnchor="9.600000000000001" />
+            <Button layoutX="175.0" layoutY="484.0" mnemonicParsing="false" onAction="#extractOrder" prefHeight="34.0" prefWidth="146.0" styleClass="btn" text="Xuất hóa đơn " AnchorPane.bottomAnchor="9.600000000000001" />
+            <Label layoutX="8.0" layoutY="345.0" text="Mã khuyến mại:  " AnchorPane.bottomAnchor="165.4" />
+            <TextField fx:id="mn_soLuongSP" layoutX="171.0" layoutY="340.0" prefHeight="26.0" prefWidth="146.0" promptText="Nhập mã khuyến mại" styleClass="textField" AnchorPane.bottomAnchor="160.8" />
+            <Label layoutX="8.0" layoutY="377.0" text="Số điện thoại của khách hàng:" AnchorPane.bottomAnchor="133.4" />
+            <TextField fx:id="phoneCusrtomer" layoutX="171.0" layoutY="372.0" prefHeight="26.0" prefWidth="146.0" promptText="Số điện thoại" styleClass="textField" AnchorPane.bottomAnchor="128.8" />
          </children>
       </AnchorPane>
-      <TextField fx:id="searchTextField" layoutX="660.8" layoutY="14.0" prefHeight="26.0" prefWidth="392.0" styleClass="textField" />
-      <FontAwesomeIcon fill="#bf0199" glyphName="SEARCH" layoutX="1030.0" layoutY="34.0" onMouseClicked="#searchProduct" size="20" />
+      <TextField fx:id="searchTextField" layoutX="660.8" layoutY="14.0" prefHeight="26.0" prefWidth="392.0" styleClass="textField" AnchorPane.rightAnchor="9.200000000000045" />
+      <FontAwesomeIcon fill="#bf0199" glyphName="SEARCH" layoutX="1030.0" layoutY="34.0" onMouseClicked="#searchProduct" size="20" AnchorPane.rightAnchor="13.428571701049805" />
       <Label layoutX="22.0" layoutY="19.0" styleClass="text" text="Quản lý sách">
          <font>
             <Font name="Arial Bold" size="18.0" />

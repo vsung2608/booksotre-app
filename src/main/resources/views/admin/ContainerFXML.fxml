@@ -37,7 +37,7 @@
                 </HBox>
                 <AnchorPane fx:id="containImage" prefHeight="210.0" prefWidth="140.0">
                     <children>
-                        <ImageView fx:id="bookImage" fitHeight="210.0" fitWidth="150.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
+                        <ImageView fx:id="bookImage" fitHeight="210.0" fitWidth="150.0" layoutX="15.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false" styleClass="card" />
                     </children>
                 </AnchorPane>
                 <HBox alignment="CENTER" prefHeight="44.0" prefWidth="275.0">

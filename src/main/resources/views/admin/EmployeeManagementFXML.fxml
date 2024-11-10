@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="572.0" prefWidth="1036.0" stylesheets="@../../assets/css/admin.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.admin.EmployeeManagementController">
+   <styleClass>
+      <String fx:value="white-bg" />
+      <String fx:value="shadow" />
+      <String fx:value="radius" />
+   </styleClass>
+   <children>
+      <Label layoutX="14.0" layoutY="20.0" styleClass="text" text="Quản lý nhân viên">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="listEmployee" layoutX="15.2" layoutY="68.0" onMouseClicked="#getEmployeeToUpdate" prefHeight="318.0" prefWidth="1005.0" AnchorPane.bottomAnchor="186.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="68.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="38.39999330043793" text="Mã" />
+            <TableColumn fx:id="col_email" prefWidth="120.80005264282227" text="Email" />
+            <TableColumn fx:id="col_name" prefWidth="141.6000213623047" text="Họ Và Tên" />
+            <TableColumn fx:id="col_pphone" prefWidth="102.39996337890625" text="Số điện thoại" />
+            <TableColumn fx:id="col_address" prefWidth="107.20001220703125" text="Địa chỉ" />
+            <TableColumn fx:id="col_gender" prefWidth="72.79995727539062" text="Giới tính" />
+            <TableColumn fx:id="col_dob" prefWidth="108.0" text="Ngày sinh" />
+            <TableColumn fx:id="col_role" prefWidth="108.0" text="Vị trí" />
+            <TableColumn fx:id="col_salary" prefWidth="108.0" text="Lương" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="searchTextField" layoutX="716.0" layoutY="25.0" prefHeight="26.0" prefWidth="306.0" promptText="Nhập vào tên nhân viên muốn tìm kiếm kiếm" styleClass="textField" AnchorPane.rightAnchor="13.600000000000023" AnchorPane.topAnchor="25.0" />
+      <FontAwesomeIcon glyphName="SEARCH" layoutX="1000.0" layoutY="44.0" onMouseClicked="#searchEmployee" size="15" styleClass="text" wrappingWidth="14.342930793762207" AnchorPane.rightAnchor="21.657069206237793" />
+      <TextField fx:id="input_id" editable="false" layoutX="20.0" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Mã nhân viên" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
+      <TextField fx:id="input_email" layoutX="20.0" layoutY="440.8" prefHeight="26.0" prefWidth="220.0" promptText="email" styleClass="textField" AnchorPane.bottomAnchor="104.0" />
+      <TextField fx:id="input_name" layoutX="20.0" layoutY="479.2" prefHeight="26.0" prefWidth="220.0" promptText="Họ và tên" styleClass="textField" AnchorPane.bottomAnchor="65.60000000000002" />
+      <TextField fx:id="input_phone" layoutX="517.6" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Ngày sinh" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
+      <TextField fx:id="input_address" editable="false" layoutX="271.0" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Số điện thoại" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
+      <TextField fx:id="input_gender" editable="false" layoutX="270.0" layoutY="441.0" prefHeight="26.0" prefWidth="220.0" promptText="Địa chỉ" styleClass="textField" AnchorPane.bottomAnchor="103.8" />
+      <TextField fx:id="input_dob" layoutX="270.0" layoutY="480.0" prefHeight="26.0" prefWidth="220.0" promptText="Giới tính" styleClass="textField" AnchorPane.bottomAnchor="65.60000000000001" />
+      <Button layoutX="19.0" layoutY="531.4" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Thêm " AnchorPane.bottomAnchor="5.399999999999977" />
+      <Button layoutX="270.20000000000005" layoutY="530.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Sửa" AnchorPane.bottomAnchor="5.600000000000065" />
+      <Button layoutX="517.6" layoutY="529.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Xóa" AnchorPane.bottomAnchor="5.600000000000065" />
+      <TextField fx:id="input_role" layoutX="519.0" layoutY="441.0" prefHeight="26.0" prefWidth="220.0" promptText="Vị trí" styleClass="textField" AnchorPane.bottomAnchor="103.8" />
+      <TextField fx:id="input_password" layoutX="519.0" layoutY="479.0" prefHeight="26.0" prefWidth="220.0" promptText="Mật khẩu" styleClass="textField" AnchorPane.bottomAnchor="65.8" />
+      <Button layoutX="806.0" layoutY="528.0" mnemonicParsing="false" onAction="#putImage" prefHeight="35.0" prefWidth="173.0" styleClass="btn" text="Đẩy ảnh" AnchorPane.bottomAnchor="5.600000000000065" />
+      <AnchorPane layoutX="823.0" layoutY="391.0" prefHeight="128.0" prefWidth="140.0">
+         <children>
+            <ImageView fx:id="avatar" fitHeight="108.0" fitWidth="108.0" layoutX="16.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -6,9 +6,16 @@ import com.booksotre.model.EmployeeModel;
 import com.booksotre.service.IEmployeeService;
 import com.booksotre.utils.PasswordUtil;
 
+import java.util.List;
+
 public class EmployeeService implements IEmployeeService {
 
     private final IEmployeeDAO employeeDAO = new EmployeeDAO();
+
+    @Override
+    public List<EmployeeModel> getAllEmployees() {
+        return employeeDAO.getAllEmployee();
+    }
 
     public boolean checkAccountExist(String email) {
         System.out.println(employeeDAO.checkAccountExistence(email));
@@ -46,5 +53,15 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void updateProfile(EmployeeModel employee) {
         employeeDAO.updateMyInfo(employee);
+    }
+
+    @Override
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteEmployee(id);
+    }
+
+    @Override
+    public List<EmployeeModel> findEmployee(String name) {
+        return employeeDAO.findEmployeeByName(name);
     }
 }

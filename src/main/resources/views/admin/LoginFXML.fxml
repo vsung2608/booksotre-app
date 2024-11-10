@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -42,11 +43,11 @@
                         <TextField fx:id="rg_email" layoutX="33.0" layoutY="237.0" prefHeight="30.0" prefWidth="231.0" promptText="email" styleClass="textField" />
                         <PasswordField fx:id="rg_password" layoutX="33.0" layoutY="277.0" prefHeight="30.0" prefWidth="231.0" promptText="mật khẩu" styleClass="textField" />
                         <Button fx:id="rg_registerBtn" layoutX="33.0" layoutY="324.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="43.0" prefWidth="231.0" styleClass="login-btn" text="Đăng ký" />
-                        <ComboBox fx:id="rg_gender" layoutX="33.0" layoutY="200.0" prefHeight="26.0" prefWidth="102.0" promptText="Giới tính" styleClass="comboBox" />
-                        <ComboBox fx:id="rg_dob" layoutX="153.0" layoutY="201.0" prefHeight="26.0" prefWidth="111.0" promptText="Năm sinh" styleClass="comboBox" stylesheets="@../../assets/css/login.css" />
+                        <ComboBox fx:id="rg_gender" layoutX="33.0" layoutY="200.0" prefHeight="27.0" prefWidth="94.0" promptText="Giới tính" styleClass="comboBox" />
                         <TextField fx:id="rg_address" layoutX="33.0" layoutY="159.0" prefHeight="30.0" prefWidth="231.0" promptText="Địa chỉ" styleClass="textField" />
                         <TextField fx:id="rg_phone" layoutX="33.0" layoutY="119.0" prefHeight="30.0" prefWidth="231.0" promptText="Số điện thoại" styleClass="textField" />
                         <TextField fx:id="rg_fullName" layoutX="33.0" layoutY="81.0" prefHeight="30.0" prefWidth="231.0" promptText="Họ và tên" styleClass="textField" />
+                  <DatePicker fx:id="rg_dob" layoutX="135.0" layoutY="200.0" prefHeight="26.0" prefWidth="126.0" promptText="Ngày sinh" styleClass="comboBox" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="side_form" prefHeight="400.0" prefWidth="300.0" styleClass="gradient" stylesheets="@../../assets/css/login.css" AnchorPane.bottomAnchor="0.0">

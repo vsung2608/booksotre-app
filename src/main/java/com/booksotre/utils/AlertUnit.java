@@ -8,7 +8,7 @@ public class AlertUnit {
         alert.setTitle(alertInfo.getTitle());
         alert.setHeaderText(null);
         alert.setContentText(alertInfo.getMessage());
-        if(alertInfo.getType() != Alert.AlertType.CONFIRMATION){
+        if (alertInfo.getType() != Alert.AlertType.CONFIRMATION) {
             alert.showAndWait();
         }
         return alert;

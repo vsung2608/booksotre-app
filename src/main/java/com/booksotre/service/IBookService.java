@@ -9,6 +9,8 @@ public interface IBookService {
 
     List<BookModel> findByTitle(String title);
 
+    List<BookModel> findByCategory(int categoryId);
+
     void createBook(BookModel book);
 
     void updateBook(BookModel book);
@@ -18,4 +20,10 @@ public interface IBookService {
     String getStatus(int bookId);
 
     BookModel findOne(String isbn);
+
+    BookModel findById(int bookId);
+
+    void setQuantity(int id, int quantity);
+
+    List<BookModel> getTopBook();
 }

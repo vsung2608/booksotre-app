@@ -19,7 +19,7 @@ public class CustomerMapper implements IRowMapper<CustomerModel> {
                     .address(rs.getString("address"))
                     .password(rs.getString("password"))
                     .gender(rs.getString("gender"))
-                    .dob(rs.getString("dob"))
+                    .dob(rs.getDate("dob").toLocalDate())
                     .createAt(rs.getTimestamp("create_at"))
                     .build();
         } catch (SQLException e) {

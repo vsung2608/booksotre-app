@@ -2,11 +2,8 @@ package com.booksotre.model;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class CategoryModel {
     private Integer categoryId;
     private String categoryName;

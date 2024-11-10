@@ -1,10 +1,11 @@
 package com.booksotre.service;
 
-import com.booksotre.model.CategoryModel;
-
 import java.util.List;
+
+import com.booksotre.model.CategoryModel;
 
 public interface ICategoryService {
     CategoryModel findById(int categoryId);
+
     List<CategoryModel> findAll();
 }

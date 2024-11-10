@@ -26,7 +26,7 @@
                <content>
                   <AnchorPane prefHeight="178.0" prefWidth="1001.0">
                      <children>
-                        <AnchorPane layoutX="6.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                        <AnchorPane layoutX="6.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" style="-fx-background-color: #4285f4;" styleClass="nav-form">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="DOLLAR" layoutX="20.0" layoutY="94.0" size="60" />
                               <Label layoutX="100.0" layoutY="103.0" text="Thu nhập theo ngày" textFill="#fafafa">
@@ -40,7 +40,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="268.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                        <AnchorPane layoutX="268.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" style="-fx-background-color: #9b72cb;" styleClass="nav-form">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="MONEY" layoutX="20.0" layoutY="94.0" size="60" />
                               <Label layoutX="159.0" layoutY="103.0" text="Tổng thu nhập" textFill="#fafafa" />
@@ -51,7 +51,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="1052.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                        <AnchorPane layoutX="1052.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" style="-fx-background-color: orange;" styleClass="nav-form">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" layoutX="20.0" layoutY="94.0" size="60" />
                               <Label layoutX="101.0" layoutY="103.0" text="Số đơn hàng đang chờ xác nhận" textFill="#fafafa" />
@@ -62,7 +62,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="530.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                        <AnchorPane layoutX="530.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" style="-fx-background-color: red;" styleClass="nav-form">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="BAN" layoutX="20.0" layoutY="94.0" size="60" />
                               <Label layoutX="125.0" layoutY="103.0" text="Số đơn hàng bị hủy " textFill="#fafafa" />
@@ -73,7 +73,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="791.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" styleClass="nav-form">
+                        <AnchorPane layoutX="791.0" layoutY="9.0" prefHeight="146.0" prefWidth="256.0" style="-fx-background-color: green;" styleClass="nav-form">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="CHECK" layoutX="20.0" layoutY="94.0" size="60" />
                               <Label layoutX="125.0" layoutY="103.0" text="Số đơn hàng thành công" textFill="#fafafa" />
@@ -132,8 +132,8 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <DatePicker fx:id="pickDateTo" layoutX="791.0" layoutY="17.0" prefHeight="27.0" prefWidth="205.0" promptText="đến ngày" styleClass="textField" />
-      <FontAwesomeIcon fill="#d40d84" glyphName="FILTER" layoutX="1016.0" layoutY="39.0" size="25" />
+      <DatePicker fx:id="pickDateTo" layoutX="791.0" layoutY="17.0" prefHeight="27.0" prefWidth="205.0" promptText="đến ngày" styleClass="textField" AnchorPane.rightAnchor="65.4" />
+      <FontAwesomeIcon fill="#d40d84" glyphName="FILTER" layoutX="1016.0" layoutY="39.0" size="25" AnchorPane.rightAnchor="26.35714340209961" />
       <DatePicker fx:id="pickDateFrom" layoutX="528.0" layoutY="17.0" prefHeight="27.0" prefWidth="206.0" promptText="Từ ngày" styleClass="textField" AnchorPane.rightAnchor="280.0" />
    </children>
 </AnchorPane>

@@ -9,6 +9,8 @@ public interface IBookDAO {
 
     List<BookModel> findByName(String name);
 
+    List<BookModel> findByCategory(int category);
+
     void createBook(BookModel book);
 
     void updateBook(BookModel book);
@@ -18,4 +20,12 @@ public interface IBookDAO {
     int getQuantityById(int id);
 
     BookModel findOne(String isbn);
+
+    BookModel findById(int id);
+
+    void setQuantityBook(int id, int quantity);
+
+    List<BookModel> getHistoryBookByCustomerId(int customerId);
+
+    List<BookModel> getHotProduct();
 }

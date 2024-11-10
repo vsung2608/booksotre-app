@@ -1,12 +1,11 @@
 package com.booksotre.model;
 
-import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+import lombok.*;
+
+@Data
 @Builder
 public class OrderTamp {
     public static Integer customerId;
@@ -17,4 +16,6 @@ public class OrderTamp {
     public static List<OrderDetailModel> listDetail = new ArrayList<>();
     public static String emailEmployee;
     public static String emailCustomer;
+    public static Integer orderId;
+    public static String role;
 }

@@ -4,11 +4,8 @@ import java.sql.Timestamp;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class EmployeeModel {
     private Integer employeeId;
     private String email;

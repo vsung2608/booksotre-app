@@ -5,12 +5,10 @@ import java.util.Objects;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class BookModel {
     private Integer bookId;
     private Integer categoryId;

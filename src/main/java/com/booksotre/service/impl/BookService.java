@@ -22,6 +22,11 @@ public class BookService implements IBookService {
     }
 
     @Override
+    public List<BookModel> findByCategory(int categoryId) {
+        return bookDAO.findByCategory(categoryId);
+    }
+
+    @Override
     public void createBook(BookModel book) {
         bookDAO.createBook(book);
     }
@@ -44,5 +49,20 @@ public class BookService implements IBookService {
     @Override
     public BookModel findOne(String isbn) {
         return bookDAO.findOne(isbn);
+    }
+
+    @Override
+    public BookModel findById(int bookId) {
+        return bookDAO.findById(bookId);
+    }
+
+    @Override
+    public void setQuantity(int id, int quantity) {
+        bookDAO.setQuantityBook(id, quantity);
+    }
+
+    @Override
+    public List<BookModel> getTopBook() {
+        return bookDAO.getHotProduct();
     }
 }

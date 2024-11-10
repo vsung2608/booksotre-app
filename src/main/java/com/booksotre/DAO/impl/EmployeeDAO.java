@@ -8,6 +8,12 @@ import com.booksotre.model.EmployeeModel;
 
 public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployeeDAO {
     @Override
+    public List<EmployeeModel> getAllEmployee() {
+        String query = "SELECT * FROM Employee";
+        return query(query, new EmployeeMapper());
+    }
+
+    @Override
     public int checkAccountExistence(String email) {
         String query = "SELECT COUNT(*) FROM Employee WHERE email = ?;";
         return count(query, email);
@@ -18,7 +24,7 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
         String query =
                 """
 				INSERT INTO Employee(email, password, employee_name, role, gender, dob, phone, address, salary, avatar)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 				""";
         insert(
                 query,
@@ -88,5 +94,17 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
                 employee.getPhone(),
                 employee.getAddress(),
                 employee.getEmployeeId());
+    }
+
+    @Override
+    public void deleteEmployee(int id) {
+        String query = "DELETE FROM Employee WHERE employee_id = ?;";
+        delete(query, id);
+    }
+
+    @Override
+    public List<EmployeeModel> findEmployeeByName(String name) {
+        String query = "SELECT employee_id, email, password, employee_name, role, gender, dob, phone, address, create_at, salary, avatar FROM Employee WHERE employee_name = ?;";
+        return query(query, new EmployeeMapper(), name);
     }
 }

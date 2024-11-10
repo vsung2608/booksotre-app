@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="558.0" prefWidth="1100.0" styleClass="dasboard_background" stylesheets="@../../assets/css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.user.HistoryController">
+   <children>
+      <Label layoutX="23.0" layoutY="27.0" text="Lịch sử mua hàng" textFill="#6e6e6e">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <VBox layoutX="23.0" layoutY="76.0" prefHeight="433.0" prefWidth="702.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="702.0" text="Thông tin chung">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="38.0" prefWidth="94.0">
+               <font>
+                  <Font name="Bell MT" size="16.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="202.0" prefWidth="714.0" styleClass="bg-white">
+               <children>
+                  <AnchorPane prefHeight="202.0" prefWidth="218.0" styleClass="lab-border">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label layoutX="2.0" layoutY="45.0" text="Số đơn hàng chờ xác nhận" textFill="#10b174">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="process_order" layoutX="88.0" layoutY="81.0" text="0" textFill="#159678">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="202.0" prefWidth="226.0" styleClass="lab-border">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label layoutX="31.0" layoutY="44.0" prefHeight="26.0" prefWidth="159.0" text="Số đơn hàng đã mua" textFill="#10b174">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="success_order" layoutX="98.0" layoutY="81.0" text="0" textFill="#159678">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="216.0" layoutY="10.0" prefHeight="202.0" prefWidth="218.0" styleClass="lab-border">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="cancel_order" layoutX="31.0" layoutY="45.0" text="Số đơn hàng đã hủy" textFill="#10b174">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="79.0" text="0" textFill="#159678">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="194.0" prefWidth="694.0" styleClass="bg-white">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="186.0" prefWidth="323.0">
+                     <children>
+                        <AnchorPane prefHeight="186.0" prefWidth="326.0">
+                           <children>
+                              <ImageView fitHeight="185.0" fitWidth="364.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/images/background-2.png" />
+                                 </image>
+                              </ImageView>
+                              <Button layoutX="121.0" layoutY="92.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #159678;" styleClass="home-btn" text="Nhận" textFill="WHITE" />
+                              <Label contentDisplay="CENTER" layoutX="44.0" layoutY="53.0" text="Nhận hỗ trợ từ nhân viên" textFill="#10b174">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="186.0" prefWidth="178.0" styleClass="deal-background">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="Số sản phầm đã mua" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="book_quantity" contentDisplay="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="50.0" prefWidth="159.0" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="33.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <Label contentDisplay="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="50.0" prefWidth="118.0" text="Tháng này" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="304.0" layoutY="10.0" prefHeight="186.0" prefWidth="191.0" styleClass="deal-background">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="Chi phí" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="cost_analyst" contentDisplay="CENTER" prefHeight="50.0" prefWidth="159.0" text="\$0.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="33.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="Tháng này" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <Separator layoutX="762.0" layoutY="62.0" orientation="VERTICAL" prefHeight="448.0" prefWidth="2.0" />
+      <ScrollPane fx:id="scroll_book_bought" layoutX="780.0" layoutY="115.0" prefHeight="394.0" prefWidth="292.0" styleClass="transparent">
+         <content>
+            <VBox fx:id="contain_book_bought" prefHeight="394.0" prefWidth="279.0" style="-fx-background-color: #f3fbf5;" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="775.0" layoutY="75.0" prefHeight="20.0" prefWidth="298.0" text="Các sản phẩm đã mua">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

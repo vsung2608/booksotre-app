@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1300.0" stylesheets="@../../assets/css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.user.UserController">
+    <children>
+        <AnchorPane>
+            <children>
+                <BorderPane layoutX="0.8" layoutY="1.0" prefHeight="600.0" prefWidth="1300.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.7999999999999545" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                    <top>
+                        <AnchorPane prefHeight="42.0" prefWidth="1299.0" styleClass="bg-white" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="14.0" layoutY="1.0" prefHeight="35.0" prefWidth="174.0" text="BookStore" textFill="#159678">
+                                    <font>
+                                        <Font name="Bell MT Bold" size="29.0" />
+                                    </font>
+                                    <graphic>
+                                        <FontAwesomeIcon fill="#159678" glyphName="LEANPUB" selectionFill="#159678" />
+                                    </graphic>
+                                </Label>
+                                <Separator layoutX="194.0" layoutY="3.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="34.0" prefWidth="6.0" />
+                                <TextField fx:id="searchTextField" layoutX="218.0" layoutY="5.0" prefHeight="31.0" prefWidth="352.0" promptText="Nhập vào sản phẩm muốn tìm kiếm" styleClass="search-btn" />
+                                <FontAwesomeIcon fx:id="searchButton" fill="#796c6c" glyphName="SEARCH" layoutX="541.0" layoutY="28.0" size="20" text="">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></FontAwesomeIcon>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane minWidth="-Infinity" prefHeight="558.0" prefWidth="194.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="556.0" prefWidth="195.0" styleClass="bg-white" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <children>
+                              <VBox prefHeight="556.0000000000001" prefWidth="195.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="115.0" prefWidth="194.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="194.0" text="Trang chủ">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <HBox fx:id="hotBookButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-top-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="130.0" text="Sách nổi bật" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                          <HBox fx:id="categoryButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-category-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="122.0" text="Thể loại" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Separator prefHeight="6.0" prefWidth="200.0" />
+                                    <VBox prefHeight="163.0" prefWidth="195.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="194.0" text="Trang chủ">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <HBox fx:id="notificationButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-bell-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="130.0" text="Thông báo" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                          <HBox fx:id="cartButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="195.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-cart-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="130.0" text="Giỏ hàng" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                          <HBox fx:id="historyButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-clock-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="122.0" text="Lịch sử " textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Separator prefHeight="6.0" prefWidth="200.0" />
+                                    <VBox prefHeight="166.0" prefWidth="195.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="194.0" text="Trang chủ">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <HBox fx:id="profileButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-account-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="130.0" text="Thông tin cá nhân" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                          <HBox fx:id="changePasswordButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="194.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-key-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="129.0" text="Thay đổi mật khẩu" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                          <HBox fx:id="logoutButton" alignment="CENTER" onMouseClicked="#navigate" prefHeight="40.0" prefWidth="195.0" styleClass="hbox">
+                                             <children>
+                                                <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../assets/icons/icons8-logout-100.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label prefHeight="18.0" prefWidth="129.0" text="Đăng xuất" textFill="#3e3e3e">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="558.0" prefWidth="1207.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="hotBookForm" layoutX="4.0" prefHeight="557.6" prefWidth="1104.8" styleClass="dasboard_background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane fx:id="categoryForm" prefHeight="557.6" prefWidth="1104.8" styleClass="dasboard_background" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane fx:id="cartForm" layoutX="71.2" layoutY="153.0" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane fx:id="historyForm" layoutX="142.4" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <StackPane fx:id="passwordForm" prefHeight="557.6" prefWidth="1104.8" style="-fx-background-color: #f3fbf5;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <StackPane fx:id="profileForm" prefHeight="557.6" prefWidth="1104.8" style="-fx-background-color: #f3fbf5;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane fx:id="notificationForm" layoutX="143.2" layoutY="-1.0" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

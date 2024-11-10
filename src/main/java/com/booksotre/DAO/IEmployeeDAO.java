@@ -2,7 +2,11 @@ package com.booksotre.DAO;
 
 import com.booksotre.model.EmployeeModel;
 
+import java.util.List;
+
 public interface IEmployeeDAO {
+    List<EmployeeModel> getAllEmployee();
+
     int checkAccountExistence(String email);
 
     void createAccount(EmployeeModel employee);
@@ -14,4 +18,8 @@ public interface IEmployeeDAO {
     void changePassword(String email, String newPassword);
 
     void updateMyInfo(EmployeeModel employee);
+
+    void deleteEmployee(int id);
+
+    List<EmployeeModel> findEmployeeByName(String name);
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="195.0" style="-fx-background-radius: 2;" stylesheets="@../../assets/css/card.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.user.CardBookController">
+    <children>
+        <AnchorPane prefHeight="234.0" prefWidth="200.0">
+            <children>
+                <ImageView fx:id="image" fitHeight="270.0" fitWidth="180.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+        <Label fx:id="bookName" prefHeight="46.0" prefWidth="200.0" text="Tên sản phẩm" textFill="#454646">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+      <Label fx:id="author" text="Tac gia">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
+        <Label fx:id="price" text="\$0.0" textFill="#313333">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+        </Label>
+      <ImageView fitHeight="29.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@../../assets/icons/kisspng-5-star.png" />
+         </image>
+      </ImageView>
+        <AnchorPane prefHeight="49.0" prefWidth="200.0">
+            <children>
+                <Button layoutX="12.0" layoutY="6.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="175.0" styleClass="btn-sp" text="Thêm sản phẩm vào giỏ " textFill="WHITE" textOverrun="CLIP">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Button>
+            </children>
+        </AnchorPane>
+    </children>
+    <styleClass>
+        <String fx:value="white-backgroud" />
+        <String fx:value="shadow" />
+    </styleClass>
+</VBox>

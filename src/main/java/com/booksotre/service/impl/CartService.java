@@ -25,4 +25,9 @@ public class CartService implements ICartService {
     public List<CartItemModel> findByOrderId(int orderId) {
         return cartItemDAO.findByCartId(orderId);
     }
+
+    @Override
+    public void addCartItem(CartItemModel cartItemModel) {
+        cartItemDAO.saveCartItem(cartItemModel);
+    }
 }

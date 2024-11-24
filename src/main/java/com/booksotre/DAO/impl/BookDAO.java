@@ -146,4 +146,14 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
                 """;
         return query(query, new BookMapper());
     }
+
+    @Override
+    public List<BookModel> getBookByLimit(int limit, int offset) {
+        String query = """
+                SELECT book_id, category_id, title, isbn, author, publisher, price, quantity, image, description
+                FROM Book
+                LIMIT ? OFFSET ?
+                """;
+        return query(query, new BookMapper(), limit, offset * limit);
+    }
 }

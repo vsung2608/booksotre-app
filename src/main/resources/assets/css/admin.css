@@ -98,14 +98,3 @@
     -fx-border-width: .5px;
 }
 
-.default-color0.chart-series-line {
-    -fx-stroke: green;
-}
-
-.default-color1.chart-series-line {
-    -fx-stroke: red;
-}
-
-.default-color2.chart-series-line {
-    -fx-stroke: orange;
-}

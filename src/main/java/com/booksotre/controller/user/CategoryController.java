@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,9 @@ import java.util.ResourceBundle;
 public class CategoryController implements Initializable {
 
     @FXML
+    private HBox adventureButton;
+
+    @FXML
     private Label category;
 
     @FXML
@@ -32,6 +36,34 @@ public class CategoryController implements Initializable {
 
     @FXML
     private ScrollPane containScrollPane;
+
+    @FXML
+    private HBox educationButton;
+
+    @FXML
+    private HBox fantasyButton;
+
+    @FXML
+    private HBox fictionButton;
+
+    @FXML
+    private HBox horrorButton;
+
+    @FXML
+    private HBox psychologyButton;
+
+    @FXML
+    private HBox romanceButton;
+
+    @FXML
+    private HBox scienceButton;
+
+    @FXML
+    private HBox selfButton;
+
+    @FXML
+    private HBox youthButton;
+
 
     private final IBookService bookService = new BookService();
 
@@ -72,22 +104,66 @@ public class CategoryController implements Initializable {
                 CardBookController c = loader.getController();
                 c.setDataNotColor(book);
 
-                if (col == 6) {
+                if (col == 5) {
                     col = 0;
                     ++row;
                 }
                 containGridPane.add(box2, col++, row);
-                GridPane.setMargin(box2, new Insets(10));
+                GridPane.setMargin(box2, new Insets(15));
             }
         } catch (IOException ex) {
             System.out.println(ex);
         }
     }
 
+    public void navigate(MouseEvent event){
+        if(event.getSource() == adventureButton){
+            handleButtonClick(adventureButton);
+            setDisplay("Phiêu lưu ly kỳ");
+            category.setText("Phiêu lưu ly kỳ");
+        }else if(event.getSource() == educationButton){
+            handleButtonClick(educationButton);
+            setDisplay("Giáo Dục");
+            category.setText("Giáo Dục");
+        }else if(event.getSource() == fictionButton){
+            handleButtonClick(fictionButton);
+            setDisplay("Tiểu Thuyết");
+            category.setText("Tiểu Thuyết");
+        }else if(event.getSource() == romanceButton){
+            handleButtonClick(romanceButton);
+            setDisplay("Lãng mạng");
+            category.setText("Lãng mạng");
+        }else if(event.getSource() == selfButton){
+            handleButtonClick(selfButton);
+            setDisplay("Phát Triển Bản Thân");
+            category.setText("Phát Triển Bản Thân");
+        }else if(event.getSource() == fantasyButton){
+            handleButtonClick(fantasyButton);
+            setDisplay("Kỳ ảo");
+            category.setText("Kỳ ảo");
+        }else if(event.getSource() == horrorButton){
+            handleButtonClick(horrorButton);
+            setDisplay("Trinh thám - kinh dị");
+            category.setText("Trinh thám - kinh dị");
+        }else if(event.getSource() == psychologyButton){
+            handleButtonClick(psychologyButton);
+            setDisplay("Tâm Lý Học");
+            category.setText("Tâm Lý Học");
+        }else if(event.getSource() == scienceButton){
+            handleButtonClick(scienceButton);
+            setDisplay("Khoa Học Viễn Tưởng");
+            category.setText("Khoa Học Viễn Tưởng");
+        }else if(event.getSource() == youthButton){
+            handleButtonClick(youthButton);
+            setDisplay("Thanh xuân");
+            category.setText("Thanh xuân");
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list = categoryService.findAll();
-        setDisplay("Thanh xuân");
-        category.setText("Thanh xuân");
+        setDisplay("Tiểu Thuyết");
+        category.setText("Tiểu Thuyết");
     }
 }

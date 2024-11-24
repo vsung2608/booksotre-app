@@ -3,23 +3,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="formTimKiem" prefHeight="557.6" prefWidth="1248.8" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane fx:id="formTimKiem" prefHeight="557.6" prefWidth="1248.8" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="thongBaoTK" layoutX="20.0" layoutY="10.0" text="Thông báo">
+      <Label fx:id="notification" layoutX="20.0" layoutY="10.0" text="Thông báo">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <ScrollPane layoutX="20.0" layoutY="43.0" prefHeight="493.0" prefWidth="1208.0" styleClass="transparent">
          <content>
-            <GridPane fx:id="hopChuaSPTheoTimKiem" prefHeight="30.0" prefWidth="90.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
+            <GridPane fx:id="containBook">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
             </GridPane>
          </content>
       </ScrollPane>

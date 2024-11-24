@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 import javax.smartcardio.Card;
 import java.net.URL;
@@ -46,9 +49,24 @@ public class CartItemController implements Initializable {
     @FXML
     private Label totalPrice;
 
+    @FXML
+    private AnchorPane product;
+
+    @FXML
+    private HBox hboxchild;
+
+    @FXML
+    private HBox hbox;
+
     private final IBookService bookService = new BookService();
 
     public void setData(CartItemModel cart){
+        HBox.setHgrow(hboxchild, Priority.ALWAYS);
+        HBox.setHgrow(product, Priority.ALWAYS);
+
+        hbox.setMaxWidth(Double.MAX_VALUE);
+        hboxchild.setMaxWidth(Double.MAX_VALUE);
+
         number.setText(cart.getCartId().toString());
         quantity.setText(cart.getQuantity().toString());
         totalPrice.setText(cart.getPrice().toString());

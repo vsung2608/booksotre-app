@@ -65,4 +65,9 @@ public class BookService implements IBookService {
     public List<BookModel> getTopBook() {
         return bookDAO.getHotProduct();
     }
+
+    @Override
+    public List<BookModel> getByPaging(int limit, int offset) {
+        return bookDAO.getBookByLimit(limit, offset);
+    }
 }

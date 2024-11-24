@@ -205,6 +205,7 @@ public class ProductManagementController implements Initializable {
                     saveImageIntoProject();
                     alert = AlertUnit.generateAlert(AlertInfo.ADD_BOOK_SUCCESSFUL);
 
+                    setListDataBook();
                     setListBook();
                     resetDataBook();
                 } else alert = AlertUnit.generateAlert(AlertInfo.CANCEL);
@@ -244,6 +245,7 @@ public class ProductManagementController implements Initializable {
                 }
                 alert = AlertUnit.generateAlert(AlertInfo.UPDATE_SUCCESSFUL);
 
+                setListDataBook();
                 setListBook();
                 resetDataBook();
             } else alert = AlertUnit.generateAlert(AlertInfo.CANCEL);
@@ -264,6 +266,7 @@ public class ProductManagementController implements Initializable {
                 bookService.deleteBook(book);
                 alert = AlertUnit.generateAlert(AlertInfo.DELETE_SUCCESSFUL);
 
+                setListDataBook();
                 setListBook();
                 resetDataBook();
             } else {

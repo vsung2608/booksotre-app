@@ -293,6 +293,9 @@ public class AdminController implements Initializable {
             childPane = loaderBooking.load();
             bookingForm.getChildren().add(childPane);
 
+            BookingController controller = loaderBooking.getController();
+            controller.setAdminController(this);
+
             AnchorPane.setTopAnchor(childPane, 0.0);
             AnchorPane.setRightAnchor(childPane, 0.0);
             AnchorPane.setBottomAnchor(childPane, 0.0);

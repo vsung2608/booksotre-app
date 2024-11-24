@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -14,11 +15,12 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
+
+    private UserController userController;
 
     @FXML
     private ScrollPane containAllBook;
@@ -29,11 +31,23 @@ public class BookController implements Initializable {
     @FXML
     private GridPane containChildBook;
 
+    @FXML
+    private Pagination pagination;
+
     private final IBookService bookService = new BookService();
+
+    private List<BookModel> listAllBook;
+
+    public void setUserController(UserController userController) {
+        this.userController = userController;
+    }
+
+    public UserController getUserController(){
+        return userController;
+    }
 
     public void setDisplay(){
         List<BookModel> listBook = bookService.getTopBook();
-        List<BookModel> listAllBook = bookService.findAll();
         int col = 0;
         int row = 1;
 
@@ -45,6 +59,7 @@ public class BookController implements Initializable {
                 loader.setLocation(getClass().getResource("/views/user/CartBookFXML.fxml"));
                 HBox box = loader.load();
                 CardBookController c = loader.getController();
+                c.setBookController(this);
                 c.setData(book);
                 containBook.getChildren().add(box);
             }
@@ -54,6 +69,7 @@ public class BookController implements Initializable {
                 loader.setLocation(getClass().getResource("/views/user/CardBookAllFXML.fxml"));
                 VBox box2 = loader.load();
                 CardBookController c = loader.getController();
+                c.setBookController(this);
                 c.setDataNotColor(book);
 
                 if (col == 6) {
@@ -68,8 +84,22 @@ public class BookController implements Initializable {
         }
     }
 
+    void setupPagination(){
+        pagination.setPageCount(5);
+        pagination.setCurrentPageIndex(0);
+        pagination.setMaxPageIndicatorCount(3);
+
+        pagination.currentPageIndexProperty().addListener((observable, oldValue, newValue) -> {
+            int currentPage = newValue.intValue();
+            listAllBook = bookService.getByPaging(24, currentPage);
+            setDisplay();
+        });
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        listAllBook = bookService.getByPaging(24, 0);
         setDisplay();
+        setupPagination();
     }
 }

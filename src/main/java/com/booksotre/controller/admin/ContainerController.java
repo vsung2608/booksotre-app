@@ -1,7 +1,6 @@
 package com.booksotre.controller.admin;
 
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +20,13 @@ import com.booksotre.service.IBookService;
 import com.booksotre.service.impl.BookService;
 import com.booksotre.utils.AlertInfo;
 import com.booksotre.utils.AlertUnit;
+import lombok.Getter;
+import lombok.Setter;
 
 public class ContainerController implements Initializable {
+
+    @Setter
+    private BookingController controller;
 
     @FXML
     private AnchorPane card_form;
@@ -43,17 +47,21 @@ public class ContainerController implements Initializable {
 
     private SpinnerValueFactory<Integer> upDownQuantity;
     private final IBookService bookService = new BookService();
-    FXMLLoader loaderBooking = new FXMLLoader(getClass().getResource("/views/admin/BookingFXMl.fxml"));
 
     public void setData(BookModel book) {
         this.book = book;
         bookName.setText(book.getTitle());
         bookPrice.setText("$" + book.getPrice());
-        String link = book.getImage();
-        System.out.println(link);
-        if(link != null){
-            Image img = new Image(getClass().getResourceAsStream(link), 150, 210, false, true);
-            bookImage.setImage(img);
+        String link = null;
+        try{
+            link = book.getImage();
+            if(link != null){
+                Image img = new Image(getClass().getResourceAsStream(link), 150, 210, false, true);
+                bookImage.setImage(img);
+            }
+        }catch (Exception e){
+            System.out.println(link);
+            e.printStackTrace();
         }
     }
 
@@ -88,10 +96,12 @@ public class ContainerController implements Initializable {
                     OrderTamp.listDetail.add(od);
                     alert = AlertUnit.generateAlert(AlertInfo.ADD_BOOK_INTO_ORDER);
 
-                    AnchorPane child = loaderBooking.load();
-                    BookingController bookingController = loaderBooking.getController();
-                    bookingController.setListBooking();
-                    bookingController.getTotalOrder();
+                    if(controller != null){
+                        controller.getTotalOrder();
+                        controller.setListBooking();
+                    }
+
+                    setQuantity();
                 }
             }
         } catch (Exception e) {

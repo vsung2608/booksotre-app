@@ -45,7 +45,7 @@
       </ImageView>
         <AnchorPane prefHeight="49.0" prefWidth="200.0">
             <children>
-                <Button layoutX="12.0" layoutY="6.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="175.0" styleClass="btn-sp" text="Thêm sản phẩm vào giỏ " textFill="WHITE" textOverrun="CLIP">
+                <Button layoutX="12.0" layoutY="6.0" mnemonicParsing="false" onAction="#showDetail" prefHeight="27.0" prefWidth="175.0" styleClass="btn-sp" text="Xem chi tiết sản phẩm" textFill="WHITE" textOverrun="CLIP">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font></Button>

@@ -26,4 +26,6 @@ public interface IBookService {
     void setQuantity(int id, int quantity);
 
     List<BookModel> getTopBook();
+
+    List<BookModel> getByPaging(int limit, int offset);
 }

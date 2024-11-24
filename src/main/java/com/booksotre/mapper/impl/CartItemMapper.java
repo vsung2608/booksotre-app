@@ -16,7 +16,7 @@ public class CartItemMapper implements IRowMapper<CartItemModel> {
                     .cartId(rs.getInt("cart_id"))
                     .cartItemId(rs.getInt("cart_item_id"))
                     .bookId(rs.getInt("book_id"))
-                    .price(rs.getDouble("price"))
+                    .price(rs.getBigDecimal("price"))
                     .quantity(rs.getInt("quantity"))
                     .build();
         }catch (SQLException e){

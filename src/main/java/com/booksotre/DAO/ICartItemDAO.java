@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ICartItemDAO {
     List<CartItemModel> findByCartId(int cartId);
+
+    void saveCartItem(CartItemModel cartItem);
 }

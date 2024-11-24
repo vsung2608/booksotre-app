@@ -59,25 +59,30 @@ public class HomeController implements Initializable {
     }
 
     public void setChartAre() {
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Hoàn thành");
         String fromDate =
                 (pickDateFrom.getValue() != null) ? pickDateFrom.getValue().toString() : null;
         String toDate = (pickDateTo.getValue() != null) ? pickDateTo.getValue().toString() : null;
+
+        System.out.println(fromDate + " " + toDate);
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("Hoàn thành");
         LinkedHashMap<String, Integer> map1 = orderService.countByDate(fromDate, toDate, "Hoàn thành");
         map1.forEach((key, value) -> series1.getData().add(new XYChart.Data<>(key, value)));
 
         XYChart.Series series2 = new XYChart.Series();
-        series1.setName("Đã hủy");
+        series2.setName("Đã hủy");
         LinkedHashMap<String, Integer> map2 = orderService.countByDate(fromDate, toDate, "Đã hủy");
         map2.forEach((key, value) -> series2.getData().add(new XYChart.Data<>(key, value)));
 
         XYChart.Series series3 = new XYChart.Series();
-        series1.setName("Chờ xác nhận");
-        LinkedHashMap<String, Integer> map3 = orderService.countByDate(fromDate, toDate, "Chờ xác nhận");
+        series3.setName("Chờ xử lý");
+        LinkedHashMap<String, Integer> map3 = orderService.countByDate(fromDate, toDate, "Chờ xử lý");
         map3.forEach((key, value) -> series3.getData().add(new XYChart.Data<>(key, value)));
 
         chart1.getData().addAll(series1, series2, series3);
+        series1.getNode().setStyle("-fx-fill: rgba(34, 139, 34, 0.5);");
+        series2.getNode().setStyle("-fx-fill: rgba(255, 0, 0, 0.5);");
+        series3.getNode().setStyle("-fx-fill: rgba(255, 165, 0, 0.5);");
     }
 
     public void setChartPie() {
@@ -87,9 +92,14 @@ public class HomeController implements Initializable {
         pieChart.setData(pieChartData);
     }
 
+    public void filterButton(){
+        setChartAre();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCart();
         setChartAre();
+        setChartPie();
     }
 }

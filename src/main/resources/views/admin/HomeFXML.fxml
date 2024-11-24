@@ -104,7 +104,7 @@
                   <String fx:value="white-bg" />
                </styleClass>
                <children>
-                  <AreaChart fx:id="chart1" layoutX="10.0" layoutY="-27.0" prefHeight="346.0" prefWidth="433.0" title="Biểu đồ dữ liệu thống kê hóa đơn " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AreaChart fx:id="chart1" layoutX="10.0" layoutY="-27.0" prefHeight="346.0" prefWidth="433.0" stylesheets="@../../assets/css/admin.css" title="Biểu đồ dữ liệu thống kê hóa đơn " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" />
                      </xAxis>
@@ -121,7 +121,7 @@
                   <String fx:value="white-bg" />
                </styleClass>
                <children>
-                  <PieChart fx:id="pieChart" layoutX="8.0" layoutY="6.0" prefHeight="292.0" prefWidth="383.2" title="Biểu đồ thống kê thu nhập" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <PieChart fx:id="pieChart" layoutX="8.0" layoutY="6.0" prefHeight="292.0" prefWidth="383.2" title="Top 5 sản phẩm bán chạy nhất" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </children>
@@ -133,7 +133,7 @@
          </font>
       </Label>
       <DatePicker fx:id="pickDateTo" layoutX="791.0" layoutY="17.0" prefHeight="27.0" prefWidth="205.0" promptText="đến ngày" styleClass="textField" AnchorPane.rightAnchor="65.4" />
-      <FontAwesomeIcon fill="#d40d84" glyphName="FILTER" layoutX="1016.0" layoutY="39.0" size="25" AnchorPane.rightAnchor="26.35714340209961" />
+      <FontAwesomeIcon fill="#d40d84" glyphName="FILTER" layoutX="1016.0" layoutY="39.0" onMouseClicked="#filterButton" size="25" AnchorPane.rightAnchor="26.35714340209961" />
       <DatePicker fx:id="pickDateFrom" layoutX="528.0" layoutY="17.0" prefHeight="27.0" prefWidth="206.0" promptText="Từ ngày" styleClass="textField" AnchorPane.rightAnchor="280.0" />
    </children>
 </AnchorPane>

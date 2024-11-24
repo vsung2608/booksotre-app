@@ -10,4 +10,6 @@ public interface ICartService {
     CartModel findByCustomerId(int customerId);
 
     List<CartItemModel> findByOrderId(int orderId);
+
+    void addCartItem(CartItemModel cartItemModel);
 }

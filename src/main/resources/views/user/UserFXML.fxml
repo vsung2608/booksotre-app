@@ -4,13 +4,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -33,7 +36,7 @@
                                 </Label>
                                 <Separator layoutX="194.0" layoutY="3.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="34.0" prefWidth="6.0" />
                                 <TextField fx:id="searchTextField" layoutX="218.0" layoutY="5.0" prefHeight="31.0" prefWidth="352.0" promptText="Nhập vào sản phẩm muốn tìm kiếm" styleClass="search-btn" />
-                                <FontAwesomeIcon fx:id="searchButton" fill="#796c6c" glyphName="SEARCH" layoutX="541.0" layoutY="28.0" size="20" text="">
+                                <FontAwesomeIcon fx:id="searchButton" fill="#796c6c" glyphName="SEARCH" layoutX="541.0" layoutY="28.0" onMouseClicked="#searchButton" size="20" text="">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></FontAwesomeIcon>
@@ -43,9 +46,9 @@
                     <left>
                         <AnchorPane minWidth="-Infinity" prefHeight="558.0" prefWidth="194.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="556.0" prefWidth="195.0" styleClass="bg-white" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                <AnchorPane layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="559.0" prefWidth="195.0" styleClass="bg-white" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="1.0">
                            <children>
-                              <VBox prefHeight="556.0000000000001" prefWidth="195.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox prefHeight="556.0000000000001" prefWidth="195.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <VBox prefHeight="115.0" prefWidth="194.0">
                                        <children>
@@ -300,13 +303,27 @@
                     <center>
                         <AnchorPane prefHeight="558.0" prefWidth="1207.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="hotBookForm" layoutX="4.0" prefHeight="557.6" prefWidth="1104.8" styleClass="dasboard_background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane fx:id="searchForm" prefHeight="562.0" prefWidth="1115.0" styleClass="dasboard_background" visible="false" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="notificationSearch" layoutX="14.0" layoutY="9.0" text="thông báo" />
+                              <ScrollPane layoutX="14.0" layoutY="39.0" prefHeight="502.0" prefWidth="1075.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="39.0">
+                                 <content>
+                                    <GridPane fx:id="containBookSearch" prefHeight="30.0" prefWidth="154.0">
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                                 <AnchorPane fx:id="categoryForm" prefHeight="557.6" prefWidth="1104.8" styleClass="dasboard_background" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                 <AnchorPane fx:id="cartForm" layoutX="71.2" layoutY="153.0" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                 <AnchorPane fx:id="historyForm" layoutX="142.4" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <StackPane fx:id="passwordForm" prefHeight="557.6" prefWidth="1104.8" style="-fx-background-color: #f3fbf5;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <StackPane fx:id="profileForm" prefHeight="557.6" prefWidth="1104.8" style="-fx-background-color: #f3fbf5;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                 <AnchorPane fx:id="notificationForm" layoutX="143.2" layoutY="-1.0" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="BookDetailForm" prefHeight="557.6" prefWidth="1104.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="hotBookForm" layoutX="41.0" layoutY="53.0" prefHeight="557.6" prefWidth="1104.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                             </children>
                         </AnchorPane>
                     </center>

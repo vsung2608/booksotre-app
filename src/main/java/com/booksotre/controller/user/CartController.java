@@ -27,10 +27,16 @@ public class CartController implements Initializable {
     @FXML
     private Label total_price;
 
+    @FXML
+    private Label name;
+
     private final ICartService cartService = new CartService();
 
     public void setData(){
+        HBox.setHgrow(name, Priority.ALWAYS);
+        name.setMaxWidth(Double.MAX_VALUE);
         CartModel cart = cartService.findByCustomerId(OrderTamp.customerId);
+        OrderTamp.cartId = cart.getCartId();
         List<CartItemModel> listCartItem = cartService.findByOrderId(cart.getCartId());
         for (CartItemModel item : listCartItem) {
             FXMLLoader loader = new FXMLLoader();
@@ -38,6 +44,7 @@ public class CartController implements Initializable {
             HBox box = null;
             try {
                 box = loader.load();
+                box.setMaxWidth(Double.MAX_VALUE);
                 HBox.setHgrow(box, Priority.ALWAYS);
             } catch (IOException e) {
                 throw new RuntimeException(e);

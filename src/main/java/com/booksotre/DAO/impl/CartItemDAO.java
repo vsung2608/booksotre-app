@@ -17,4 +17,13 @@ public class CartItemDAO extends AbstractDAO<CartItemDAO> implements ICartItemDA
                 """;
         return query(query, new CartItemMapper(), cartId);
     }
+
+    @Override
+    public void saveCartItem(CartItemModel cartItem) {
+        String query = """
+                INSERT INTO Cart_item (book_id, cart_id, price)
+                VALUES (?, ?, ?);
+                """;
+        insert(query, cartItem.getBookId(), cartItem.getCartId(), cartItem.getPrice());
+    }
 }

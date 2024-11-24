@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -29,12 +30,20 @@ import com.booksotre.service.impl.OrderService;
 import com.booksotre.utils.AlertInfo;
 import com.booksotre.utils.AlertUnit;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import lombok.Getter;
+import lombok.Setter;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class BookingController implements Initializable {
+
+    @Setter
+    @Getter
+    private AdminController adminController;
 
     @FXML
     private TableColumn<OrderDetailModel, Integer> col_bookID;
@@ -60,6 +69,9 @@ public class BookingController implements Initializable {
     @FXML
     private TextField phoneCusrtomer;
 
+    @FXML
+    private Pagination pagination;
+
     private final IBookService bookService = new BookService();
 
     private final ICustomerService customerService = new CustomerService();
@@ -75,7 +87,7 @@ public class BookingController implements Initializable {
     private double tol;
 
     public void setListDataBook() {
-        listDataBook = FXCollections.observableArrayList(bookService.findAll());
+        listDataBook = FXCollections.observableArrayList(bookService.getByPaging(12, 0));
     }
 
     void setListMenu() {
@@ -91,6 +103,7 @@ public class BookingController implements Initializable {
                     loader.setLocation(getClass().getResource("/views/admin/ContainerFXML.fxml"));
                     AnchorPane pane = loader.load();
                     ContainerController cardController = loader.getController();
+                    cardController.setController(this);
                     cardController.setData(bookModel);
 
                     if (col == 4) {
@@ -187,11 +200,24 @@ public class BookingController implements Initializable {
         }
     }
 
+    void setupPagination(){
+        pagination.setPageCount(10);
+        pagination.setCurrentPageIndex(0);
+        pagination.setMaxPageIndicatorCount(5);
+
+        pagination.currentPageIndexProperty().addListener((observable, oldValue, newValue) -> {
+            int currentPage = newValue.intValue();
+            listDataBook = FXCollections.observableArrayList(bookService.getByPaging(12, currentPage));
+            setListMenu();
+        });
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setListDataBook();
         setListMenu();
         getTotalOrder();
         setListBooking();
+        setupPagination();
     }
 }

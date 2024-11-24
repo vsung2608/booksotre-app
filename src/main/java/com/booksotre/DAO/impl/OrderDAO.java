@@ -58,25 +58,65 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
         LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         StringBuilder query = new StringBuilder();
         query.append("""
-				SELECT DATE(create_at) AS order_day, COUNT(*) AS total_orders
-				FROM Orders
-				""");
+                SELECT dt.order_day,
+                    COALESCE(COUNT(o.order_id), 0) AS total_orders
+                """);
         if (from == null || to == null) {
             query.append(
                     """
-					WHERE (create_at >= CURDATE() - INTERVAL 7 DAY
-						AND create_at < CURDATE()) AND order_status = ?
-						GROUP BY DATE(create_at)
-						ORDER BY order_day;
-					""");
+                    FROM (
+                         SELECT CURDATE() - INTERVAL 6 DAY AS order_day
+                         UNION
+                         SELECT CURDATE() - INTERVAL 5 DAY
+                         UNION
+                         SELECT CURDATE() - INTERVAL 4 DAY
+                         UNION
+                         SELECT CURDATE() - INTERVAL 3 DAY
+                         UNION
+                         SELECT CURDATE() - INTERVAL 2 DAY
+                         UNION
+                         SELECT CURDATE() - INTERVAL 1 DAY
+                         UNION
+                         SELECT CURDATE() AS order_day
+                    ) dt
+                         LEFT JOIN Orders o ON DATE(o.create_at) = dt.order_day
+                    AND o.order_status = ?
+                    GROUP BY dt.order_day
+                    ORDER BY dt.order_day;
+                    """);
             map = countByDate(query.toString(), status);
         } else {
+            String set = """
+					SET @start_date = ?;
+					SET @end_date = ?;
+					""";
+            query.insert(0, set);
             query.append(
                     """
-					WHERE (DATE(create_at) BETWEEN ? AND ?) AND order_status = ?
-					GROUP BY DATE(create_at)
-					ORDER BY order_day;
-					""");
+                    FROM (
+                         SELECT @start_date AS order_day
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 1 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 2 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 3 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 4 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 5 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 6 DAY)
+                         UNION
+                         SELECT DATE_ADD(@start_date, INTERVAL 7 DAY) -- Tính đến end_date
+                    ) dt
+                         LEFT JOIN Orders o ON DATE(o.create_at) = dt.order_day
+                    AND o.order_status = ?
+                    WHERE dt.order_day BETWEEN @start_date AND @end_date
+                    GROUP BY dt.order_day
+                    ORDER BY dt.order_day;
+                    """);
+            System.out.println(query);
             map = countByDate(query.toString(), from, to, status);
         }
         return map;

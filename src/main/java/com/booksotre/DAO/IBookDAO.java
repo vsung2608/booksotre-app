@@ -28,4 +28,6 @@ public interface IBookDAO {
     List<BookModel> getHistoryBookByCustomerId(int customerId);
 
     List<BookModel> getHotProduct();
+
+    List<BookModel> getBookByLimit(int limit, int offset);
 }

@@ -11,99 +11,100 @@
 
 <AnchorPane prefHeight="558.0" prefWidth="1104.0" style="-fx-background-color: #f3fbf5;" stylesheets="@../../assets/css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booksotre.controller.user.CartController">
    <children>
-      <VBox layoutX="25.0" layoutY="78.0" prefHeight="376.0" prefWidth="1064.0" styleClass="bg-white" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="24.799999999999955" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="78.0">
+      <HBox layoutX="28.0" layoutY="80.0" maxWidth="Infinity" prefHeight="36.0" prefWidth="1058.0" styleClass="bg-white" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="17.59999999999991" AnchorPane.topAnchor="80.0">
          <children>
-            <HBox prefHeight="36.0" prefWidth="1087.0" styleClass="bg-white">
-               <children>
-                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="67.0" text="STT">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="603.0" text="Sách ">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="77.0" layoutY="10.0" prefHeight="38.0" prefWidth="178.0" text="Số lượng ">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="584.0" layoutY="10.0" prefHeight="38.0" prefWidth="190.0" text="Đơn giá ">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="672.0" layoutY="10.0" prefHeight="38.0" prefWidth="164.0" text="Thành tiền">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="950.0" layoutY="10.0" prefHeight="38.0" prefWidth="96.0" text="Xóa">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="gh-border" />
-                        <String fx:value="back-table" />
-                     </styleClass>
-                  </Label>
-               </children>
-            </HBox>
-            <ScrollPane prefHeight="342.0" prefWidth="1042.0" style="-fx-background-color: #f3fbf5;">
-               <content>
-                  <VBox fx:id="containerCartItem" prefHeight="339.0" prefWidth="1061.0" style="-fx-background-color: #f3fbf5;" />
-               </content>
-            </ScrollPane>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="54.0" text="STT">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+            </Label>
+            <Label fx:id="name" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="533.0" text="Sách ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+               <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Label>
+            <Label alignment="CENTER" layoutX="77.0" layoutY="10.0" prefHeight="38.0" prefWidth="178.0" text="Số lượng ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+               <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Label>
+            <Label alignment="CENTER" layoutX="584.0" layoutY="10.0" prefHeight="36.0" prefWidth="166.0" text="Đơn giá ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+               <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Label>
+            <Label alignment="CENTER" layoutX="672.0" layoutY="10.0" prefHeight="36.0" prefWidth="145.0" text="Thành tiền">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+               <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Label>
+            <Label alignment="CENTER" layoutX="950.0" layoutY="10.0" prefHeight="36.0" prefWidth="70.0" text="Xóa">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="gh-border" />
+                  <String fx:value="back-table" />
+               </styleClass>
+               <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Label>
          </children>
-      </VBox>
-      <Label layoutX="25.0" layoutY="28.0" text="Giỏ hảng của tôi" textFill="#159678">
+      </HBox>
+      <ScrollPane fitToWidth="true" layoutX="28.0" layoutY="116.0" prefHeight="350.0" prefWidth="1058.0" style="-fx-background-color: #f3fbf5;" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="17.59999999999991" AnchorPane.topAnchor="116.0">
+         <content>
+            <VBox fx:id="containerCartItem" maxWidth="Infinity" prefHeight="339.0" style="-fx-background-color: #f3fbf5;" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="25.0" layoutY="28.0" text="Giỏ hảng của tôi" textFill="#159678" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="28.0">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="908.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Xóa tất cả sản phẩm " AnchorPane.bottomAnchor="27.4">
+      <Button layoutX="908.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Xóa tất cả sản phẩm " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="17.599999999999994">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="706.0" layoutY="497.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="186.0" styleClass="btn-gh" text="Thêm sản phẩm vào giỏ " AnchorPane.bottomAnchor="27.4">
+      <Button layoutX="706.0" layoutY="497.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="186.0" styleClass="btn-gh" text="Thêm sản phẩm vào giỏ " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="211.6">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="509.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Thanh toán " AnchorPane.bottomAnchor="27.4">
+      <Button layoutX="509.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Thanh toán " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="416.6">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="903.0" layoutY="467.0" prefHeight="18.0" prefWidth="60.0" text="Tổng tiền:" AnchorPane.bottomAnchor="72.6">
+      <Label layoutX="903.0" layoutY="467.0" prefHeight="18.0" prefWidth="60.0" text="Tổng tiền:" AnchorPane.bottomAnchor="72.6" AnchorPane.rightAnchor="141.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="total_price" layoutX="966.0" layoutY="467.0" prefHeight="18.0" prefWidth="120.0">
+      <Label fx:id="total_price" layoutX="966.0" layoutY="467.0" prefHeight="18.0" prefWidth="120.0" AnchorPane.bottomAnchor="72.6" AnchorPane.rightAnchor="18.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -44,11 +45,10 @@
       <TextField fx:id="input_id" editable="false" layoutX="20.0" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Mã nhân viên" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
       <TextField fx:id="input_email" layoutX="20.0" layoutY="440.8" prefHeight="26.0" prefWidth="220.0" promptText="email" styleClass="textField" AnchorPane.bottomAnchor="104.0" />
       <TextField fx:id="input_name" layoutX="20.0" layoutY="479.2" prefHeight="26.0" prefWidth="220.0" promptText="Họ và tên" styleClass="textField" AnchorPane.bottomAnchor="65.60000000000002" />
-      <TextField fx:id="input_phone" layoutX="517.6" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Ngày sinh" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
-      <TextField fx:id="input_address" editable="false" layoutX="271.0" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Số điện thoại" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
-      <TextField fx:id="input_gender" editable="false" layoutX="270.0" layoutY="441.0" prefHeight="26.0" prefWidth="220.0" promptText="Địa chỉ" styleClass="textField" AnchorPane.bottomAnchor="103.8" />
-      <TextField fx:id="input_dob" layoutX="270.0" layoutY="480.0" prefHeight="26.0" prefWidth="220.0" promptText="Giới tính" styleClass="textField" AnchorPane.bottomAnchor="65.60000000000001" />
-      <Button layoutX="19.0" layoutY="531.4" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Thêm " AnchorPane.bottomAnchor="5.399999999999977" />
+      <TextField fx:id="input_address" layoutX="271.0" layoutY="404.0" prefHeight="26.0" prefWidth="220.0" promptText="Địa chỉ" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
+      <TextField fx:id="input_gender" layoutX="270.0" layoutY="441.0" prefHeight="26.0" prefWidth="220.0" promptText="Giới tính" styleClass="textField" AnchorPane.bottomAnchor="103.8" />
+      <DatePicker fx:id="input_dob" layoutX="270.0" layoutY="480.0" prefHeight="26.0" prefWidth="220.0" promptText="Ngày sinh" styleClass="textField" AnchorPane.bottomAnchor="65.60000000000001" />
+      <Button layoutX="19.0" layoutY="531.4" mnemonicParsing="false" onAction="#addEmployee" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Thêm " AnchorPane.bottomAnchor="5.399999999999977" />
       <Button layoutX="270.20000000000005" layoutY="530.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Sửa" AnchorPane.bottomAnchor="5.600000000000065" />
       <Button layoutX="517.6" layoutY="529.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="35.0" prefWidth="220.0" styleClass="btn" text="Xóa" AnchorPane.bottomAnchor="5.600000000000065" />
       <TextField fx:id="input_role" layoutX="519.0" layoutY="441.0" prefHeight="26.0" prefWidth="220.0" promptText="Vị trí" styleClass="textField" AnchorPane.bottomAnchor="103.8" />
@@ -59,5 +59,6 @@
             <ImageView fx:id="avatar" fitHeight="108.0" fitWidth="108.0" layoutX="16.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" />
          </children>
       </AnchorPane>
+      <TextField fx:id="input_phone" layoutX="518.0" layoutY="404.0" prefHeight="27.0" prefWidth="220.0" promptText="Số điện thoại" styleClass="textField" AnchorPane.bottomAnchor="140.8" />
    </children>
 </AnchorPane>

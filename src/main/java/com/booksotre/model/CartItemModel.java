@@ -11,5 +11,5 @@ public class CartItemModel {
     private Integer cartId;
     private Integer bookId;
     private Integer quantity;
-    private BigDecimal price;
+    private Double price;
 }

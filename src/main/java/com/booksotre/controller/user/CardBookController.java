@@ -1,27 +1,25 @@
 package com.booksotre.controller.user;
 
-import com.booksotre.controller.admin.ContainerController;
 import com.booksotre.model.BookModel;
-import com.booksotre.model.CartItemModel;
 import com.booksotre.model.OrderTamp;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import lombok.Setter;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CardBookController implements Initializable {
-
+    @Setter
     private BookController homeController;
+
+    @Setter
+    private CategoryController categoryController;
 
     @FXML
     private Label author;
@@ -41,10 +39,6 @@ public class CardBookController implements Initializable {
     private BookModel book;
 
     private String[] colors = new String[]{"B9E5FF", "BDB2FE", "FB9AA8", "FF5056"};
-
-    public void setBookController(BookController homeController) {
-        this.homeController = homeController;
-    }
 
     public void setData(BookModel book) {
         this.book = book;
@@ -71,6 +65,8 @@ public class CardBookController implements Initializable {
         OrderTamp.bookId = book.getBookId();
         if (homeController != null && homeController.getUserController() != null) {
             homeController.getUserController().showBookDetail(book.getBookId());
+        }else if(categoryController != null && categoryController.getUserController() != null) {
+            categoryController.getUserController().showBookDetail(book.getBookId());
         }
     }
 

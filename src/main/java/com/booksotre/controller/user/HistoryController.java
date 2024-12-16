@@ -38,7 +38,6 @@ public class HistoryController implements Initializable {
     @FXML
     private Label success_order;
 
-
     private final ICustomerService customerService = new CustomerService();
 
     private final IOrderService orderService = new OrderService();
@@ -55,6 +54,6 @@ public class HistoryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        setData();
     }
 }

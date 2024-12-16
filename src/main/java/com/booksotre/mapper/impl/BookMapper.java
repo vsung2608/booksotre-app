@@ -19,7 +19,7 @@ public class BookMapper implements IRowMapper<BookModel> {
                     .publisher(rs.getString("publisher"))
                     .categoryId(rs.getInt("category_id"))
                     .quantity(rs.getInt("quantity"))
-                    .price(rs.getBigDecimal("price"))
+                    .price(rs.getDouble("price"))
                     .image(rs.getString("image"))
                     .status((rs.getInt("quantity")) > 0 ? "Còn hàng" : "Hết hàng")
                     .description(rs.getString("description"))

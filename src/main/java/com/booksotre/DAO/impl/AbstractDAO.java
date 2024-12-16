@@ -194,6 +194,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add((U) rs.getString(1));
+                list.add((U) rs.getString(2));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

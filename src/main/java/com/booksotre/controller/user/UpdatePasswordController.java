@@ -31,13 +31,13 @@ public class UpdatePasswordController implements Initializable {
         if (newPassword.getText().isEmpty() || oldPassword.getText().isEmpty() || confirmNewPassword.getText().isEmpty()) {
             alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
         } else {
-            if (customerService.passwordValid(OrderTamp.emailEmployee, oldPassword.getText())) {
+            if (customerService.passwordValid(OrderTamp.emailCustomer, oldPassword.getText())) {
                 if (newPassword.getText().length() < 8) {
                     alert = AlertUnit.generateAlert(AlertInfo.PASSWORD_INVALID);
-                } else if (newPassword.getText().equals(confirmNewPassword.getText())) {
+                } else if (!newPassword.getText().equals(confirmNewPassword.getText())) {
                     alert = AlertUnit.generateAlert(AlertInfo.CONFIRMNEWPASS_INCORRECT);
                 } else {
-                    customerService.changePassword(OrderTamp.emailEmployee, newPassword.getText());
+                    customerService.changePassword(OrderTamp.emailCustomer, newPassword.getText());
                     alert = AlertUnit.generateAlert(AlertInfo.UPDATE_SUCCESSFUL);
                 }
             } else {

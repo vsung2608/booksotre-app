@@ -20,9 +20,8 @@ public class EmployeeMapper implements IRowMapper<EmployeeModel> {
                     .address(rs.getString("address"))
                     .password(rs.getString("password"))
                     .gender(rs.getString("gender"))
-                    .dob(rs.getString("create_at"))
+                    .dob(rs.getDate("create_at").toLocalDate())
                     .salary(rs.getDouble("salary"))
-                    .dob(String.valueOf(rs.getDate("dob")))
                     .build();
         } catch (SQLException e) {
             throw new RuntimeException(e);

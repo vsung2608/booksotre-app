@@ -1,6 +1,7 @@
 package com.booksotre.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import lombok.*;
 
@@ -14,7 +15,7 @@ public class EmployeeModel {
     private String phone;
     private String address;
     private String gender;
-    private String dob;
+    private LocalDate dob;
     private String role;
     private Double salary;
     private String avatar;

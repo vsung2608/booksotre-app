@@ -22,12 +22,27 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public List<CartItemModel> findByOrderId(int orderId) {
-        return cartItemDAO.findByCartId(orderId);
+    public List<CartItemModel> findByCartId(int cartId) {
+        return cartItemDAO.findByCartId(cartId);
     }
 
     @Override
     public void addCartItem(CartItemModel cartItemModel) {
         cartItemDAO.saveCartItem(cartItemModel);
+    }
+
+    @Override
+    public void deleteCartItem(int cartId) {
+        cartItemDAO.deleteByCartId(cartId);
+    }
+
+    @Override
+    public void resetCart(int id) {
+        cartDAO.resetCart(id);
+    }
+
+    @Override
+    public void updateCart(int quantity, double price, int id) {
+        cartDAO.updateCart(quantity, price, id);
     }
 }

@@ -19,7 +19,7 @@ public class EmployeeService implements IEmployeeService {
 
     public boolean checkAccountExist(String email) {
         System.out.println(employeeDAO.checkAccountExistence(email));
-        return employeeDAO.checkAccountExistence(email) == 0;
+        return employeeDAO.checkAccountExistence(email) != 0;
     }
 
     @Override

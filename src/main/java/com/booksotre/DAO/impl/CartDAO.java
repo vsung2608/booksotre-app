@@ -17,4 +17,18 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
         List<CartModel> list = query(query, new CartMapper(), customerId);
         return list.isEmpty() ? null : (CartModel) list.getFirst();
     }
+
+    @Override
+    public void resetCart(int id) {
+        String query = """
+                UPDATE Cart SET total_amout = 0, total_price = 0 WHERE cart_id = ?
+                """;
+        update(query, id);
+    }
+
+    @Override
+    public void updateCart(int quantity, double price, int id) {
+        String query = "UPDATE Cart SET total_amout = total_amout + ?, total_price = total_price + ? WHERE cart_id = ?";
+        update(query, quantity, price, id);
+    }
 }

@@ -68,6 +68,7 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
                 employee.getDob(),
                 employee.getPhone(),
                 employee.getAddress(),
+                employee.getAvatar(),
                 employee.getEmployeeId());
     }
 
@@ -93,6 +94,7 @@ public class EmployeeDAO extends AbstractDAO<EmployeeModel> implements IEmployee
                 employee.getGender(),
                 employee.getPhone(),
                 employee.getAddress(),
+                employee.getAvatar(),
                 employee.getEmployeeId());
     }
 

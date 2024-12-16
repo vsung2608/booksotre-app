@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -65,7 +66,7 @@ public class EmployeeManagementController implements Initializable {
     private TextField input_address;
 
     @FXML
-    private TextField input_dob;
+    private DatePicker input_dob;
 
     @FXML
     private TextField input_email;
@@ -128,7 +129,7 @@ public class EmployeeManagementController implements Initializable {
         }
 
         input_address.setText(employee.getAddress());
-        input_dob.setText(employee.getDob());
+        input_dob.setValue(employee.getDob());
         input_email.setText(employee.getEmail());
         input_gender.setText(employee.getGender());
         input_id.setText(employee.getEmployeeId().toString());
@@ -149,7 +150,6 @@ public class EmployeeManagementController implements Initializable {
     public void addEmployee() {
         if (input_name.getText().isEmpty()
                 || input_address.getText().isEmpty()
-                || input_dob.getText().isEmpty()
                 || input_email.getText().isEmpty()
                 || input_gender.getText().isEmpty()
                 || input_role.getText().isEmpty()
@@ -169,7 +169,7 @@ public class EmployeeManagementController implements Initializable {
                         .role(input_role.getText())
                         .employeeName(input_name.getText())
                         .address(input_address.getText())
-                        .dob(input_dob.getText())
+                        .dob(input_dob.getValue())
                         .password("employee123")
                         .avatar(linkImage)
                         .build();
@@ -177,7 +177,9 @@ public class EmployeeManagementController implements Initializable {
                 Optional<ButtonType> option = alert.showAndWait();
                 if (option.get().equals(ButtonType.OK)) {
                     employeeService.createAccount(employee);
-                    saveImageIntoProject();
+                    if (selectedImage != null) {
+                        saveImageIntoProject();
+                    }
                     alert = AlertUnit.generateAlert(AlertInfo.ADD_BOOK_SUCCESSFUL);
 
                     setListDataEmployee();
@@ -191,7 +193,6 @@ public class EmployeeManagementController implements Initializable {
     public void updateEmployee() {
         if (input_name.getText().isEmpty()
                 || input_address.getText().isEmpty()
-                || input_dob.getText().isEmpty()
                 || input_email.getText().isEmpty()
                 || input_gender.getText().isEmpty()
                 || input_role.getText().isEmpty()
@@ -205,7 +206,7 @@ public class EmployeeManagementController implements Initializable {
                     .employeeName(input_name.getText())
                     .phone(input_phone.getText())
                     .role(input_role.getText())
-                    .dob(input_dob.getText())
+                    .dob(input_dob.getValue())
                     .address(input_address.getText())
                     .avatar(linkImage)
                     .build();
@@ -237,6 +238,7 @@ public class EmployeeManagementController implements Initializable {
                 employeeService.deleteEmployee(Integer.parseInt(input_id.getText()));
                 alert = AlertUnit.generateAlert(AlertInfo.DELETE_SUCCESSFUL);
 
+                setListDataEmployee();
                 setListEmployee();
                 resetDataBook();
             } else {
@@ -271,12 +273,13 @@ public class EmployeeManagementController implements Initializable {
         input_id.setText("");
         input_email.setText("");
         input_gender.setText("");
-        input_dob.setText("");
+        input_dob.setValue(null);
         input_address.setText("");
         input_phone.setText("");
         input_role.setText("");
-        input_dob.setText("");
+        input_dob.setValue(null);
         input_password.setText("");
+        input_name.setText("");
         linkImage = null;
         avatar.setImage(null);
     }

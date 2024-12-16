@@ -73,6 +73,7 @@ public class CartItemController implements Initializable {
         BookModel book = bookService.findById(cart.getBookId());
         author.setText(book.getAuthor());
         description.setText(book.getDescription());
+        description.setWrapText(true);
         name.setText(book.getTitle());
         publisher.setText(book.getPublisher());
         price.setText(book.getPrice().toString());

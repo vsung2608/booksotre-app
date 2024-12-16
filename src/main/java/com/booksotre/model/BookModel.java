@@ -16,7 +16,7 @@ public class BookModel {
     private String isbn;
     private String author;
     private String publisher;
-    private BigDecimal price;
+    private Double price;
     private Integer quantity;
     private String description;
     private String image;

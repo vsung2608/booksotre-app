@@ -63,6 +63,13 @@ public class UpdateInformationController implements Initializable {
         oldGender.setText(customer.getGender());
         oldName.setText(customer.getCustomerName());
         olaPhone.setText(customer.getPhone());
+
+        newAddress.setText(customer.getAddress());
+        newDob.setValue(customer.getDob());
+        newEmail.setText(customer.getEmail());
+        newGender.setText(customer.getGender());
+        newName.setText(customer.getCustomerName());
+        newPhone.setText(customer.getPhone());
     }
 
     public void updateProfile() {

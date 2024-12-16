@@ -84,17 +84,17 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="908.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Xóa tất cả sản phẩm " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="17.599999999999994">
+      <Button layoutX="908.0" layoutY="497.0" mnemonicParsing="false" onAction="#deleteAllBtn" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Xóa tất cả sản phẩm " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="17.599999999999994">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="706.0" layoutY="497.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="186.0" styleClass="btn-gh" text="Thêm sản phẩm vào giỏ " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="211.6">
+      <Button layoutX="706.0" layoutY="497.0" mnemonicParsing="false" onAction="#addItem" prefHeight="34.0" prefWidth="186.0" styleClass="btn-gh" text="Thêm sản phẩm vào giỏ " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="211.6">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="509.0" layoutY="497.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Thanh toán " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="416.6">
+      <Button layoutX="509.0" layoutY="497.0" mnemonicParsing="false" onAction="#payment" prefHeight="33.0" prefWidth="178.0" styleClass="btn-gh" text="Thanh toán " AnchorPane.bottomAnchor="27.4" AnchorPane.rightAnchor="416.6">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

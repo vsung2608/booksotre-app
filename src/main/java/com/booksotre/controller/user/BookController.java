@@ -12,6 +12,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +22,8 @@ import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
 
+    @Setter
+    @Getter
     private UserController userController;
 
     @FXML
@@ -38,14 +42,6 @@ public class BookController implements Initializable {
 
     private List<BookModel> listAllBook;
 
-    public void setUserController(UserController userController) {
-        this.userController = userController;
-    }
-
-    public UserController getUserController(){
-        return userController;
-    }
-
     public void setDisplay(){
         List<BookModel> listBook = bookService.getTopBook();
         int col = 0;
@@ -59,7 +55,7 @@ public class BookController implements Initializable {
                 loader.setLocation(getClass().getResource("/views/user/CartBookFXML.fxml"));
                 HBox box = loader.load();
                 CardBookController c = loader.getController();
-                c.setBookController(this);
+                c.setHomeController(this);
                 c.setData(book);
                 containBook.getChildren().add(box);
             }
@@ -69,7 +65,7 @@ public class BookController implements Initializable {
                 loader.setLocation(getClass().getResource("/views/user/CardBookAllFXML.fxml"));
                 VBox box2 = loader.load();
                 CardBookController c = loader.getController();
-                c.setBookController(this);
+                c.setHomeController(this);
                 c.setDataNotColor(book);
 
                 if (col == 6) {

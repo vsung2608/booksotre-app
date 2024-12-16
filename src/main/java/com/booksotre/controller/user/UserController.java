@@ -192,6 +192,12 @@ public class UserController implements Initializable {
             if(form == hotBookForm){
                 BookController homeController = loader.getController();
                 homeController.setUserController(this);
+            }else if(form == categoryForm){
+                CategoryController categoryController  = loader.getController();
+                categoryController.setUserController(this);
+            }else if(form == cartForm){
+                CartController cartController = loader.getController();
+                cartController.setUsercontroller(this);
             }
 
             AnchorPane.setTopAnchor(child, 0.0);
@@ -202,6 +208,20 @@ public class UserController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void redirectHotBook(){
+        hotBookForm.setVisible(true);
+        notificationForm.setVisible(false);
+        passwordForm.setVisible(false);
+        profileForm.setVisible(false);
+        categoryForm.setVisible(false);
+        historyForm.setVisible(false);
+        cartForm.setVisible(false);
+        searchForm.setVisible(false);
+        BookDetailForm.setVisible(false);
+
+        handleButtonClick(hotBookButton);
     }
 
     public void logOut() {
@@ -230,20 +250,6 @@ public class UserController implements Initializable {
     }
 
     public void showBookDetail(Integer id){
-//        BookDetailController controller = loaderBookDetail.getController();
-//        controller.setData(id);
-//
-//        BookDetailForm.setVisible(true);
-//        hotBookForm.setVisible(false);
-//        notificationForm.setVisible(false);
-//        passwordForm.setVisible(false);
-//        profileForm.setVisible(false);
-//        passwordForm.setVisible(false);
-//        categoryForm.setVisible(false);
-//        historyForm.setVisible(false);
-//        cartForm.setVisible(false);
-//        searchForm.setVisible(false);
-
         try {
             // Tạo FXMLLoader mới
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/user/BookDetailFXML.fxml"));
@@ -309,7 +315,7 @@ public class UserController implements Initializable {
         }else if(event.getSource() == changePasswordButton){
             hotBookForm.setVisible(false);
             notificationForm.setVisible(false);
-            passwordForm.setVisible(false);
+            passwordForm.setVisible(true);
             profileForm.setVisible(false);
             categoryForm.setVisible(false);
             historyForm.setVisible(false);
@@ -367,6 +373,8 @@ public class UserController implements Initializable {
             BookDetailForm.setVisible(false);
 
             handleButtonClick(cartButton);
+            CartController controller = loaderCart.getController();
+            controller.setData();
         }else if(event.getSource() == historyButton){
             hotBookForm.setVisible(false);
             notificationForm.setVisible(false);

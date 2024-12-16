@@ -32,13 +32,21 @@ public enum AlertInfo {
     CONFIRM("Thông báo", "Bạn có chắc muốn thực hiện thao tác này khòng?", Alert.AlertType.CONFIRMATION),
     CANNOT_CONFIRM_ORDER("Thông báo", "Đơn hàng này không yêu cầu xử lý?", Alert.AlertType.INFORMATION),
     CANNOT_CANCEL_ORDER("Thông báo", "Đơn hàng đã hoàn thành hoặc đã bị hủy không thể hủy", Alert.AlertType.INFORMATION),
-    ADD_BOOK_INTO_ORDER("Thông báo", "Đax thêm sách vào đơn hàng", Alert.AlertType.INFORMATION),
+    ADD_BOOK_INTO_ORDER("Thông báo", "Đã thêm sách vào đơn hàng", Alert.AlertType.INFORMATION),
     CONFIRM_PAYMENT("Thông báo", "Bạn có chắc muốn thanh toán toàn bộ sản phẩm trong bảng hóa đơn ở trên không", Alert.AlertType.CONFIRMATION),
     NON_ORDER("Thông báo", "Không có hóa đơn để xuất", Alert.AlertType.INFORMATION),
     NOT_EXIST_ACCOUNT("Thông báo", "Số điện thoại chưa đăng ký tài khoản trên hệ thống", Alert.AlertType.INFORMATION),
     PAYMENT_SUCCESSFUL("Thông báo", "Đơn hàng đã được xác nhận và thanh toán", Alert.AlertType.INFORMATION),
     NOT_AUTHORIZATION("Thông báo", "Bạn không phải là quản trị viên nên không được phép truy cập mục này!", Alert.AlertType.INFORMATION),
     CONFIRM_LOGOUT("Thông báo", "Bạn có chắc chắn muốn đăng xuất khỏi hệ thống không", Alert.AlertType.CONFIRMATION),
+    CART_EMPTY("Thông báo", "Không có sản phẩm trong giỏ hàng của bạn. Vui lòng thêm sản phẩm vòa giỏ để sử dụng chức năng này!", Alert.AlertType.CONFIRMATION),
+    DELETE_CART("Thông báo", "Đã xóa tất cả sản phẩm trong giỏ!", Alert.AlertType.INFORMATION),
+    CONFIRM_DELETE_CART("Thông báo", "Bạn có chắc muốn xóa tất cả sản phẩm trong giỏ của bạn không?", Alert.AlertType.CONFIRMATION),
+    CONFIRM_ADD_ITEM("Thông báo", "Bạn có chắc muốn thêm sản phẩm này vào trong giỏ của bạn không?", Alert.AlertType.CONFIRMATION),
+    ADD_ITEM_SUCCESS("Thông báo", "Đã thêm sản phẩm vòa giỏ!", Alert.AlertType.INFORMATION),
+    CONFIRM_PAYMENT_CART("Thông báo", "Bạn có chắc muốn thanh toán toàn bộ sản phẩm trong giỏ không?", Alert.AlertType.CONFIRMATION),
+    WAIT_CONFIRM("Thông báo", "Đã gửi yêu cầu thanh toán vui lòng chờ xác nhận!", Alert.AlertType.INFORMATION),
+    ERROR_SYSTEM("Thông báo", "Có lỗi trong quá trình xử lý!", Alert.AlertType.INFORMATION)
     ;
 
     private final String title;

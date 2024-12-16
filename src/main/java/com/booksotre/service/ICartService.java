@@ -9,7 +9,13 @@ public interface ICartService {
 
     CartModel findByCustomerId(int customerId);
 
-    List<CartItemModel> findByOrderId(int orderId);
+    List<CartItemModel> findByCartId(int cartId);
 
     void addCartItem(CartItemModel cartItemModel);
+
+    void deleteCartItem(int cartId);
+
+    void resetCart(int id);
+
+    void updateCart(int quantity, double price, int id);
 }

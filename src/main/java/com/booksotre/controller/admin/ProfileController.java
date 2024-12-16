@@ -6,12 +6,14 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -129,11 +131,16 @@ public class ProfileController implements Initializable {
                     .avatar(linkImage)
                     .build();
 
-            if (!profileEmail.getText().equals(OrderTamp.emailEmployee)
+
+            if (profileEmail.getText().equals(OrderTamp.emailEmployee)
                     && employeeService.checkAccountExist(profileEmail.getText())) {
-                employeeService.updateProfile(employee);
-                saveImageIntoProject();
-                alert = AlertUnit.generateAlert(AlertInfo.UPDATE_SUCCESSFUL);
+                alert = AlertUnit.generateAlert(AlertInfo.CONFIRM_UPDATE);
+                Optional<ButtonType> option = alert.showAndWait();
+                if (option.get() == ButtonType.OK) {
+                    employeeService.updateProfile(employee);
+                    if(selectedImage != null) saveImageIntoProject();
+                    alert = AlertUnit.generateAlert(AlertInfo.UPDATE_SUCCESSFUL);
+                } else alert = AlertUnit.generateAlert(AlertInfo.CANCEL);
             } else {
                 alert = AlertUnit.generateAlert(AlertInfo.EMAIL_EXISTED);
             }
@@ -146,7 +153,7 @@ public class ProfileController implements Initializable {
                 if (employeeService.passwordValid(OrderTamp.emailEmployee, oldPassword.getText())) {
                     if (newPassword.getText().length() < 8) {
                         alert = AlertUnit.generateAlert(AlertInfo.PASSWORD_INVALID);
-                    } else if (newPassword.getText().equals(confirmNewPassword.getText())) {
+                    } else if (!newPassword.getText().equals(confirmNewPassword.getText())) {
                         alert = AlertUnit.generateAlert(AlertInfo.CONFIRMNEWPASS_INCORRECT);
                     } else {
                         employeeService.changePassword(OrderTamp.emailEmployee, newPassword.getText());
@@ -183,6 +190,7 @@ public class ProfileController implements Initializable {
         file.getExtensionFilters().add(new FileChooser.ExtensionFilter("Mở file ảnh", "*png", "*jpg"));
 
         selectedImage = file.showOpenDialog(null);
+        System.out.println(selectedImage);
 
         if (selectedImage != null) {
             Image img = new Image(selectedImage.toURI().toString(), 200, 200, false, true);

@@ -176,7 +176,7 @@ public class LoginController implements Initializable {
             alert = AlertUnit.generateAlert(AlertInfo.LACK_OF_INFORMATION);
         } else {
             String view = "";
-            if (!employeeService.checkAccountExist(lg_email.getText())
+            if (employeeService.checkAccountExist(lg_email.getText())
                     && employeeService.passwordValid(lg_email.getText(), lg_password.getText())) {
                 alert = AlertUnit.generateAlert(AlertInfo.LOGIN_SUCCESSFUL);
 

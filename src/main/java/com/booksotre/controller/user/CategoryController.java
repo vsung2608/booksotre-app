@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +26,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CategoryController implements Initializable {
+
+    @Setter
+    @Getter
+    private UserController userController;
 
     @FXML
     private HBox adventureButton;
@@ -102,6 +108,7 @@ public class CategoryController implements Initializable {
                 loader.setLocation(getClass().getResource("/views/user/CardBookAllFXML.fxml"));
                 VBox box2 = loader.load();
                 CardBookController c = loader.getController();
+                c.setCategoryController(this);
                 c.setDataNotColor(book);
 
                 if (col == 5) {

@@ -21,9 +21,17 @@ public class CartItemDAO extends AbstractDAO<CartItemDAO> implements ICartItemDA
     @Override
     public void saveCartItem(CartItemModel cartItem) {
         String query = """
-                INSERT INTO Cart_item (book_id, cart_id, price)
-                VALUES (?, ?, ?);
+                INSERT INTO Cart_item (book_id, cart_id, quantity, price)
+                VALUES (?, ?, ?, ?);
                 """;
-        insert(query, cartItem.getBookId(), cartItem.getCartId(), cartItem.getPrice());
+        insert(query, cartItem.getBookId(), cartItem.getCartId(), cartItem.getQuantity(), cartItem.getPrice());
+    }
+
+    @Override
+    public void deleteByCartId(int cartId) {
+        String query = """
+                    DELETE FROM Cart_item WHERE cart_id = ?;
+                """;
+        delete(query, cartId);
     }
 }

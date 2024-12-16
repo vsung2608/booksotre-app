@@ -77,7 +77,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="100.0" layoutY="79.0" text="0" textFill="#159678">
+                        <Label fx:id="cancel_order" layoutX="100.0" layoutY="79.0" text="0" textFill="#159678">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -150,7 +150,7 @@
                         </Label>
                         <Label fx:id="cost_analyst" contentDisplay="CENTER" prefHeight="50.0" prefWidth="159.0" text="\$0.0" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="33.0" />
+                              <Font name="System Bold" size="24.0" />
                            </font>
                            <padding>
                               <Insets left="10.0" />
